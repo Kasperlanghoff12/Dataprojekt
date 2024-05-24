@@ -78,5 +78,5 @@ load_GOI = function(ctrl_dir, sample_dir, annot_gr, ctrl, sample, GOI, verbose=T
   rownames(GOI_data) = GOI_data$index
   GOI_data$index = NULL
 
-  return (GOI_data)
+  return (GOI_data, rt_list)
 }
