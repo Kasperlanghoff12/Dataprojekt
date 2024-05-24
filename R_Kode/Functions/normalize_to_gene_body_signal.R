@@ -137,5 +137,5 @@ normalize_to_gene_body_signal = function(log2_GOI_data, gene_annot, estimate_TES
   # Remove the original log2-transformed gene of interest data from memory to save space
   rm(log2_GOI_data)
 
-  return(TSS_row, uTSS_row, usExt, log2_GOI_data.bodynorm.means, log2_GOI_data.bodynorm.sd)
-}
+  return(uTSS, dTES, TES_row, TSS_row, uTSS_row, dTES_row, log2_GOI_data.bodynorm.means, log2_GOI_data.bodynorm.sd)
+} 
