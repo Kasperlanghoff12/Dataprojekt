@@ -82,6 +82,14 @@ Når vi kender kroppen, kan vi normalisere dem ved at trække medianen af kroppe
 body.norm.factors = apply(log2_GOI_data[TSS_row:TES_row,], 2, median)
 log2_GOI_data.bodynorm = t(t(log2_GOI_data) - body.norm.factors)
 ```
+Til sidst fjernede vi systematisk bias fra kontrol-signalet. Dette gjorde vi ved at trække den normaliserede krops middelværdi for kontrol genet, fra den for sample genet.
+
+```{r}
+log2_GOI_data.bodynorm.means[, "ctrl"] = rowMeans(log2_GOI_data.bodynorm[, ctrl])
+log2_GOI_data.bodynorm.means[, "sample"] = rowMeans(log2_GOI_data.bodynorm[, sample])
+
+log2_GOI_data.bodynorm.means.ctrlsubtract = data.frame("sample" = log2_GOI_data.bodynorm.means[, "sample"] - log2_GOI_data.bodynorm.means[, "ctrl"])
+```
 
 
 ## Algoritme
