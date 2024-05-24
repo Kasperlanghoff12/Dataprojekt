@@ -1,4 +1,4 @@
-rt_analysis = function(GOI_data){
+log_2_transform = function(GOI_data){
   
   ##########################################################  
   #### (2) log2-transformering af data (+ pseudotælling af 1)
