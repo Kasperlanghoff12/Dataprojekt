@@ -1,4 +1,4 @@
-load_GOI <- function(ctrl_dir, sample_dir, annot_gr, ctrl, sample, GOI, verbose=TRUE, verbose2=TRUE){
+load_GOI = function(ctrl_dir, sample_dir, annot_gr, ctrl, sample, GOI, verbose=TRUE, verbose2=TRUE){
   
   ##########################################################
   #### (1) Indlæs gen-specifikt data
