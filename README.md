@@ -63,6 +63,18 @@ Der er muligvis biases i data, da de maskiner, der læser sekvenserne, kan produ
     <em>Figur 6</em>
 </p>
 
+### Preprocessering
+
+For at generalisere generne så vi kan fitte modeller på dem, har vi brug for at normalisere vores data. Her starter vi med at lægge 1 til alle observationer, så når coverage er 0, forbliver det sådan efter log-transformationen. Siden DNA-strenge både kan læses forlæns og baglæns, var vi også nødt til at tage i betragtning hvilken retning vores datapunkter var.
+
+```{r}
+if (strand_sign == "-"){
+    GOI_data = GOI_data[order(GOI_data$index, decreasing=TRUE), ]
+  }
+log2_GOI_data = log2(GOI_data + 1)
+```
+
+Udover dette, skulle vi også finde kroppen af generne, så vi kunne undersøge antagelsen om, at kroppen ville være ens for gener med- og uden defekt i termineringen. Udfordringen ved dette var, at vi i annoteringsfilen har flere annotationer af transkripter, hvor der var forskellige koordinater for begyndelsen (TSS) og slutningen (TES) af kroppen. Disse var vi nødt til at sammenligne, så vi var sikre på at finde de rigtige.
 
 ## Algoritme
 
