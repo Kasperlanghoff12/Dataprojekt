@@ -1,4 +1,4 @@
-normalize_to_gene_body_signal = rt_analysis = function(log2_GOI_data, gene_annot, estimate_TES=FALSE, norm='1', usExt=5000, verbose=TRUE, rt_list){
+normalize_to_gene_body_signal = function(log2_GOI_data, gene_annot, estimate_TES=FALSE, norm='1', usExt=5000, verbose=TRUE, rt_list){
 
   ###############################################################
   #### (4) Normalize to gene body signal
@@ -137,5 +137,5 @@ normalize_to_gene_body_signal = rt_analysis = function(log2_GOI_data, gene_annot
   # Remove the original log2-transformed gene of interest data from memory to save space
   rm(log2_GOI_data)
 
-  return(
+  return(TSS_row, uTSS_row, usExt, log2_GOI_data.bodynorm.means, log2_GOI_data.bodynorm.sd)
 }
