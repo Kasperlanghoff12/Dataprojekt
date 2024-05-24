@@ -10,5 +10,5 @@ log_2_transform = function(GOI_data){
   # Remove the original gene of interest data from memory to save space
   rm(GOI_data)
 
-  return (GOI_data)
+  return (log2_GOI_data)
 }
