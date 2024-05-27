@@ -13,6 +13,7 @@ Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funkti
   - log_2_transform
   - normalize_to_gene_body_signal
   - subtract_ctrl_signal
+  - wrapper
   
 * De følgende funktioner er kun blevet let tilpasset af SLA (udelukkende tilpasset med henblik på at fungere sammen med ændret kode fra det tidligere readthrough_analysis script).
   - remove_batch_effects
