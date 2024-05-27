@@ -115,4 +115,9 @@ log2_GOI_data.bodynorm.means.ctrlsubtract = data.frame("sample" = log2_GOI_data.
     - Viterbi algoritme
 - Bestemme readthrough eller ej
 
+### (Double)-Sigmoidal fitting
+- Vi benytter Sicegar (fitAndCategorize-funktionen) pakken til at afgøre om vi kan fitte en sigmoidal, double-sigmoidal, begge eller ingen. 
+- Hvis fitAndCategorize returnerer 'ambigious' fitter vi både en sigmoidal og en double-sigmoidal, hvorefter vi vælger den med højest R^2.
+- Typisk vil vi gøre brug af sigmoidal, hvis der starter et nyt gen kort efter termineringen af GOI. Dvs. signalerne fra de to gener flyder sammen.  
+
 ## Perspektivering
