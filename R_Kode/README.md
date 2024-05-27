@@ -5,8 +5,8 @@ Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funkti
 
 ### Bidrag
 
-R-filer med prefixet 'SLA' er udelukkende produceret af SLA.
-Følgende 'funktioner' er udarbejdet i samarbejde med SLA:
+* R-filer med prefixet 'SLA' er udelukkende produceret af SLA.
+* Følgende 'funktioner' er udarbejdet i samarbejde med SLA:
 - check_upstream_signal
 - hmmm_and_ds_fitting
 - load_GOI
@@ -14,7 +14,7 @@ Følgende 'funktioner' er udarbejdet i samarbejde med SLA:
 - normalize_to_gene_body_signal
 - subtract_ctrl_signal
   
-Følgende funktioner er kun rettet minimalt (rettet med henblik på at køre sammen med andet modificeret kode) fra det forrige readthrough_analysis script:
+* De følgende funktioner er kun blevet let tilpasset af SLA (udelukkende tilpasset med henblik på at fungere sammen med ændret kode fra det tidligere readthrough_analysis script).
 - remove_batch_effects
 - visualisation_prep
 - visualisation
