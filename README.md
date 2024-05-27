@@ -93,6 +93,9 @@ log2_GOI_data.bodynorm.means.ctrlsubtract = data.frame("sample" = log2_GOI_data.
 
 
 ## Algoritme
+- Algoritme til at finde Termination-Start-Site (TSS) og Termination-End-Site (TES).
+- Annoteringen indeholder typisk flere transkripter (med hver sit TSS & TES) pr. gen. Derfor skal vi afgøre, hvilken TSS & TES vi bruger.
+- Den valgte TSS & TES behøver ikke nødvendigvis have oprindelse i samme transkript.
 
 ## Modellering
 
