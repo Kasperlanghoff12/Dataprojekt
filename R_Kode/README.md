@@ -7,14 +7,14 @@ Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funkti
 
 * R-filer med prefixet 'SLA' er udelukkende produceret af SLA.
 * Følgende 'funktioner' er udarbejdet i samarbejde med SLA:
-- check_upstream_signal
-- hmmm_and_ds_fitting
-- load_GOI
-- log_2_transform
-- normalize_to_gene_body_signal
-- subtract_ctrl_signal
+  - check_upstream_signal
+  - hmmm_and_ds_fitting
+  - load_GOI
+  - log_2_transform
+  - normalize_to_gene_body_signal
+  - subtract_ctrl_signal
   
 * De følgende funktioner er kun blevet let tilpasset af SLA (udelukkende tilpasset med henblik på at fungere sammen med ændret kode fra det tidligere readthrough_analysis script).
-- remove_batch_effects
-- visualisation_prep
-- visualisation
+  - remove_batch_effects
+  - visualisation_prep
+  - visualisation
