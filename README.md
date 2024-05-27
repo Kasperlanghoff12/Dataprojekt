@@ -100,19 +100,19 @@ log2_GOI_data.bodynorm.means.ctrlsubtract = data.frame("sample" = log2_GOI_data.
 
 - Sekventiel data
 - HMM initiering og fitting
-    - ```{r}
-      hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
-      hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
-      ```
+- ```{r}
+  hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
+  hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
+  ```
     - Beskrivelse af states
     - Emmisions fordeling - Uafhængige normalfordelinger for states, dog antagelse om samme varians 
     - Forward-Backward algoritme - 50 iterationer
 - Finde mest sandsynlige sekvens af hidden states
+- ```{r}
+  viterbi = getViterbi(hmm_fitted, curr.data.list)
+  states = as.integer(viterbi[['GOI']])
+  ```
     - Viterbi algoritme
-    - ```{r}
-      viterbi = getViterbi(hmm_fitted, curr.data.list)
-      states = as.integer(viterbi[['GOI']])
-      ```
 - Bestemme readthrough eller ej
 
 ## Perspektivering
