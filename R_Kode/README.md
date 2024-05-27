@@ -6,7 +6,7 @@ Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funkti
 ### Bidrag
 
 * R-filer med prefixet 'SLA' er udelukkende produceret af SLA.
-* Følgende 'funktioner' er udarbejdet i samarbejde med SLA:
+* Følgende 'funktioner' er udarbejdet af os, i samarbejde med SLA:
   - check_upstream_signal
   - hmmm_and_ds_fitting
   - load_GOI
