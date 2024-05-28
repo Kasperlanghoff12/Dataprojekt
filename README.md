@@ -125,7 +125,7 @@ Dette udførte vi i r med koden:
 hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
 ```
 
-Nu hvor vi har initieret modellens parametre, kan vi fitte den til vores data ved at bruge den rekursive forward-backward algoritme, vha. EM-algoritmen, til at maksimere $`p(X\vert \pi, A, \Phi`$ ved at justere parametrene, således denne sandsynlighed er konvergeret eller algortimen er kørt igennem 50 iterationer. Vi har brugt følgende kode til dette:
+Nu hvor vi har initieret modellens parametre, kan vi fitte den til vores data ved at bruge den rekursive forward-backward algoritme, vha. EM-algoritmen, til at maksimere $`p(X\vert \pi, A, \Phi)`$ ved at justere parametrene, således denne sandsynlighed er konvergeret eller algortimen er kørt igennem 50 iterationer. Vi har brugt følgende kode til dette:
   
 ```{r}  
 hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
