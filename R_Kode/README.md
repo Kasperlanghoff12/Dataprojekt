@@ -19,7 +19,9 @@ Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funkti
   - normalize_to_gene_body_signal
     * Her benytter vi en algoritme til at finde den 'bedste' TSS og TES ud af alle de transkripter der er beskrevet i annoteringen, og              derefter normalisere vi signalet ved at trække kroppens median fra.
   - subtract_ctrl_signal
+    * Vi trækker kontrolsignalet fra prøvesignalet, hvilket medfører, at det resulterende signal ligger omkring nul, bortset fra                    ved defekten, hvor signalet vil afvige fra nul.
   - wrapper
+    * Vores wrapper er designet til at automatisere kørslen af readthrough_analysis på genomeDK's cluster med muligheden for at behandle            flere GOI's i træk, samtidig med at man kan specificere den ønskede beregningskapacitet ved at angive antallet af kerner og                   mængden af RAM.
   
 * De følgende funktioner er kun blevet let tilpasset af SLA (udelukkende tilpasset med henblik på at fungere sammen med ændret kode fra det tidligere readthrough_analysis script).
   - remove_batch_effects
