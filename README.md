@@ -122,6 +122,9 @@ for $`k \in 1, ..., K`$ tilstande og $`n \in 1, ..., N`$ tidspunkter.
 Dette udførte vi i r med vha. funktioner fra STAN pakken. Vi brugte koden:
 
 ```{r}
+curr.sample_data = log2_GOI_data.bodynorm.ctrlsubtract[, samples_reps]  ##@@ same nrow as above
+    hmm_result = sample_subtract_hmm(curr.data.list = list('GOI' = curr.sample_data[TSS_row:nrow(curr.sample_data), ]), TSS_row, TES_row, TES_rows=TES_row, col = cols_trans[[curr.sample]], usExt = usExt, statistic = statistic, cutoff = 2, plot = FALSE, ymax = 0.5, max_cv = 200)
+
 hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
 ```
 
