@@ -8,6 +8,7 @@ Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funkti
 * R-filer med prefixet 'SLA' er udelukkende produceret af SLA.
 * Følgende 'funktioner' er udarbejdet af os, i samarbejde med SLA:
   - check_upstream_signal
+    * Her udregnes forskellen mellem signalet fra kroppen (elongering) og opstrøms-signalet.
   - hmmm_and_ds_fitting
   - load_GOI
   - log_2_transform
