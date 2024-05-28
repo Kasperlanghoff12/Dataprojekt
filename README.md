@@ -103,7 +103,8 @@ for (i in 1:length(ctrl)) {
 
 ### HMM
 
-Som beskrevet i vores databeskrivelse, arbejder vi med sekventielle data i form af nukleotidbasepar langs en DNA-streng. I sekventielle data gælder antagelsen om identisk og uafhængig fordeling (i.i.d) ikke. Vi udnytter de sekventielle mønstre, som korrelation mellem nærtliggende observationer. Derfor giver det mening for os at anvende Markov-modeller, hvor der er en antagelse om, at fremtidige forudsigelser kun afhænger af de mest nylige observationer. Da vi forsøger at skelne mellem to tilstande, defekt og ikke-defekt i termineringen, introducerer vi en Hidden Markov Model (HMM). Her repræsenterer de to tilstande vores skjulte "states", mens vores observerede data er forskellen mellem vores transformerede kontrol- og sampledata.
+Som beskrevet i vores databeskrivelse, arbejder vi med sekventielle data i form af nukleotidbasepar langs en DNA-streng. I sekventielle data gælder antagelsen om identisk og uafhængig fordeling (i.i.d) ikke. Vi udnytter de sekventielle mønstre, som korrelation mellem nærtliggende observationer. Derfor giver det mening for os at anvende Markov-modeller, hvor der er en antagelse om, at fremtidige forudsigelser kun afhænger af de mest nylige observationer. Da vi forsøger at skelne mellem to tilstande, defekt og ikke-defekt i termineringen, introducerer vi en Hidden Markov Model (HMM). Her repræsenterer de to tilstande vores skjulte "states", mens vores observerede data er forskellen mellem vores transformerede kontrol- og sampledata. 
+```{cursive}Denne model udspringer fra teorien i Cristopher M. Bishop, Pattern Recognition and Machine Learning, 2006, kap 13.```
 
 Vi starter med at definere en HMM med to states og en emissionsmodel, der følger en independent gaussian fordeling med antagelsen om delt kovariansmatrix. Det vil sige at de to states, defekt og ingen defekt, hver især følger en normalfordeling, som er uafhængig af den anden, men med samme varians. Så vi har:
 
@@ -113,7 +114,7 @@ Vi starter med at definere en HMM med to states og en emissionsmodel, der følge
 
 Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$:
 - Initielle sandsynligheder: $`\pi = \{\pi_1, \pi_2\}, \pi_k = p(z_{1k} = 1)`$
-- Transitions matrix: $`A = \{a_{kj}\},`$ hvor $` a_{kj} = p(z_n+1 = j\vert z_n = k)`$
+- Transitions matrix: $`A = \{a_{kj}\},`$ hvor $` a_{kj} = p(z_{n+1} = j\vert z_n = k)`$
 - Emissions sandsynigheder: $`\Phi = \{\phi_k(x_n)\} \sim \mathcal{N}(x_n \vert \mu_k, \Sigma)`$
 
 Hvor k er state og n er tidspunkt i sekvensen.
@@ -123,6 +124,8 @@ Dette udførte vi i r med koden:
 - ```{r}
   hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
   ```
+
+  
 - ```{r}  
   hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
   ```
