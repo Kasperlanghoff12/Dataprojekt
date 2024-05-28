@@ -96,13 +96,26 @@ for (i in 1:length(ctrl)) {
 
 ## Algoritme
 
+Det er en essentiel del af hele vores pipeline at bestemme, hvilken region (dvs. start- & slutpunkt) vi antager transskriptionen foregår i, og derved vil bestemmelsen af denne danne grundlag for det data vi benytter i den senere modellering. 
+
 For hvert gen har vi typisk flere transskript-varianter angivet i annoteringen. Derfor er det væsentligt at afgøre, hvilket Transscript-Start-Site (TSS) og Transscript-End-Site (TES), vi vil benytte i vores analyse af et gen. Vi har derfor konstrueret en algoritme, der skal bestemme den region (TSS:TES), hvor transskriptions signalet er mest fremtrædende. Med andre ord ønsker vi at identificere de grænser, der med størst sandsynlighed afspejler det fulde transskript.
 
+Dette opnår vi ved at kigge på hhv. stigning og fald i signal i hhv. opstrøms- og nedstrømgsregionen i nærheden af de mulige TSS'er og TES'er. I store træk benytter vi den TSS med umiddelbart størst stigning i signal og den TES med umiddelbart største fald i signal.
+Desuden tager algoritmen højde for, hvornår der starter et nyt gen, så 'søgningen' efter en TSS og en TES kun udfolder sig inde for det aktuelle GOI's domæne. 
 
+De to figurer forneden (figur 7. & 8.) demonstrerer, hvilke mulige TSS'er og TES'er algoritmen evaluerer for genet 'GAPDH' og hvilken TSS og TES der vælges. Den røde kurve er vores kontrol-data mens den blå kurve udgør vores prøve.
+<p>
+    <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/e37d25c7-b09a-46a4-930c-98d13b8d16e9">
+    <br>
+    <em>Figur 7</em>
+</p>
 
-- Algoritme til at finde Termination-Start-Site (TSS) og Termination-End-Site (TES).
-- Annoteringen indeholder typisk flere transkripter (med hver sit TSS & TES) pr. gen. Derfor skal vi afgøre, hvilken TSS & TES vi bruger.
-- Den valgte TSS & TES behøver ikke nødvendigvis have oprindelse i samme transkript.
+<p>
+    <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/5bf2960f-ad6c-4d95-afcf-195d6d2c5fba">
+    <br>
+    <em>Figur 8</em>
+</p>
+
 
 ## Modellering
 
