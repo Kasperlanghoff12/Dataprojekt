@@ -17,7 +17,7 @@ Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funkti
   - log_2_transform
     * Vi laver en log2 transformation af signalet for at gøre det mere symmetrisk, stabilt og lettere fortolkeligt. 
   - normalize_to_gene_body_signal
-    * Her benytter vi en algoritme til at finde den 'bedste' TSS og TES ud af alle de transkripter der er beskrevet i annoteringen, og              derefter normalisere vi signalet ved at trække kroppens median fra.
+    * Her benytter vi en algoritme til at finde den 'bedste' TSS og TES ud af alle de transkripter der er beskrevet i annoteringen for det          aktuelle GOI, og derefter normalisere vi signalet ved at trække kroppens median fra.
   - subtract_ctrl_signal
     * Vi trækker kontrolsignalet fra prøvesignalet, hvilket medfører, at det resulterende signal ligger omkring nul, bortset fra                    ved defekten, hvor signalet vil afvige fra nul.
   - wrapper
