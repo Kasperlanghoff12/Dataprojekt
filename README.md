@@ -127,7 +127,7 @@ hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
 
 Nu hvor vi har initieret modellens parametre, kan vi fitte den til vores data ved at bruge den rekursive forward-backward algoritme, vha. EM-algoritmen, til at maksimere: 
 
-$`p(X\vert \pi, A, \Phi) = p(z_1\vert\pi) [ \prod_{n=2} p(z_n \vert z_{n-1}, A) ] \prod_{m=1} p(x_m \vert z_m, \Phi)`$
+$p(X\vert \pi, A, \Phi) = p(z_1\vert\pi) [ \prod_{n=2} p(z_n \vert z_{n-1}, A) ] \prod_{m=1} p(x_m \vert z_m, \Phi)$
 
 ved at justere parametrene, således denne sandsynlighed er konvergeret eller algortimen er kørt igennem 50 iterationer. Vi har brugt følgende kode til dette:
   
