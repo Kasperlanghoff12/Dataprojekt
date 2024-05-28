@@ -102,10 +102,11 @@ for (i in 1:length(ctrl)) {
 ## Modellering
 
 ### HMM
-- Sekventiel data
+
 Som beskrevet i vores databeskrivelse, arbejder vi med sekventielle data i form af nukleotidbasepar langs en DNA-streng. I sekventielle data gælder antagelsen om identisk og uafhængig fordeling (i.i.d) ikke. Vi udnytter de sekventielle mønstre, som korrelation mellem nærtliggende observationer. Derfor giver det mening for os at anvende Markov-modeller, hvor der er en antagelse om, at fremtidige forudsigelser kun afhænger af de mest nylige observationer. Da vi forsøger at skelne mellem to tilstande, defekt og ikke-defekt i termineringen, introducerer vi en Hidden Markov Model (HMM). Her repræsenterer de to tilstande vores skjulte "states", mens vores observerede data er forskellen mellem vores transformerede kontrol- og sampledata.
 
-Vi starter med at definere en HMM med to states og en emissionsmodel, der følger en independent gaussian fordeling. Det vil sige at de to states, defekt og ingen defekt, hver især følger en normalfordeling, som er uafhængig af den anden. Så vi har:
+Vi starter med at definere en HMM med to states og en emissionsmodel, der følger en independent gaussian fordeling med antagelsen om delt kovariansmatrix. Det vil sige at de to states, defekt og ingen defekt, hver især følger en normalfordeling, som er uafhængig af den anden, men med samme varians. Så vi har:
+
 - Antal tilstande: $`K = \{1, 2\}`$
 - Skjulte variable: $`Z = \{z_1, z_2, ..., z_N\}`$
 - Observerede variable: $`X = \{x_1, x_2, ..., x_N\}`$
@@ -116,6 +117,8 @@ Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$:
 - Emissions sandsynigheder: $`\Phi = \{\phi_k(x_n)\} \sim \mathcal{N}(x_n \vert \mu_k, \Sigma)`$
 
 Hvor k er state og n er tidspunkt i sekvensen.
+
+Dette udførte vi i r med koden:
 
 - ```{r}
   hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
