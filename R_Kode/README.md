@@ -15,7 +15,9 @@ Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funkti
     * Her benytter vi et gen-navn (GOI, i.e. "Gene of Interest") sammen med vores annoteringsfil til at bestemme den region (range) vi er           interesserede i, for det aktuelle gen, med forbehold for strand. Herefter benytter vi denne range til at lave en dataframe med coverage
       for vores kontrol & sample, på de positioner vi har udledt.
   - log_2_transform
+    * Vi laver en log2 transformation af signalet for at gøre det mere symmetrisk, stabilt og lettere fortolkeligt. 
   - normalize_to_gene_body_signal
+    * Her benytter vi en algoritme til at finde den 'bedste' TSS og TES ud af alle de transkripter der er beskrevet i annoteringen, og              derefter normalisere vi signalet ved at trække kroppens median fra.
   - subtract_ctrl_signal
   - wrapper
   
