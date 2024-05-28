@@ -12,7 +12,7 @@ Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funkti
   - hmm_and_ds_fitting
     * Vi forsøger først at fitte en HMM på vores kontrol fratrukket prøven, for at påvise termineringsdefekten. Hvis dette lykkes,                  fortsætter vi med, at fitte en sigmoidal-kurve (vi foretrækker en double-sigmoidal kurve), for at beskrive defekten. 
   - load_GOI
-    * Her benytter vi et gen-navn (GOI, i.e. "Gene of Interest") sammen med vores annoteringsfil til at bestemme den region (range) vi er           interesserede i, for det aktuelle gen, med forbehold for strand. Herefter benytter vi denne range til at lave en dataframe med coverage
+    * Her benytter vi et gen-navn (GOI, i.e. "Gene of Interest") sammen med vores annoteringsfil til at bestemme den region (range) vi er           interesserede i, for det aktuelle gen, med forbehold for strand (+ eller - DNA-streng). Herefter benytter vi denne range til at lave en dataframe med coverage
       for vores kontrol & sample, på de positioner vi har udledt.
   - log_2_transform
     * Vi laver en log2 transformation af signalet for at gøre det mere symmetrisk, stabilt og lettere fortolkeligt. 
