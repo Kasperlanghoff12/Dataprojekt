@@ -104,17 +104,21 @@ Dette opnår vi ved at kigge på hhv. stigning og fald i signal i hhv. opstrøms
 Desuden tager algoritmen højde for, hvornår der starter et nyt gen, så 'søgningen' efter en TSS og en TES kun udfolder sig inde for det aktuelle GOI's domæne. 
 
 De to figurer forneden (figur 7. & 8.) demonstrerer, hvilke mulige TSS'er og TES'er algoritmen evaluerer for genet 'GAPDH' og hvilken TSS og TES der vælges. Den røde kurve er vores kontrol-data mens den blå kurve udgør vores prøve.
-<p>
-    <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/e37d25c7-b09a-46a4-930c-98d13b8d16e9">
-    <br>
-    <em>Figur 7</em>
-</p>
+<table>
+  <tr>
+    <td>
+      <img width="450" alt="TSS & TES kandidater" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/e37d25c7-b09a-46a4-930c-98d13b8d16e9">
+      <br>
+      <em>Figur 7</em>
+    </td>
+    <td>
+      <img width="450" alt="Endelig TSS & TES" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/5bf2960f-ad6c-4d95-afcf-195d6d2c5fba">
+      <br>
+      <em>Figur 8</em>
+    </td>
+  </tr>
+</table>
 
-<p>
-    <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/5bf2960f-ad6c-4d95-afcf-195d6d2c5fba">
-    <br>
-    <em>Figur 8</em>
-</p>
 
 
 ## Modellering
