@@ -115,8 +115,7 @@ Vi starter med at definere en HMM med to states og en emissionsmodel, der følge
 Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$. Her initieres $\pi$ og A uniformt og parametrene til normalfordelingen vha. K-means:
 - Initielle sandsynligheder: $`\pi = \{\pi_1, \pi_2\}, \pi_k = p(z_{1k} = 1) = \frac{1}{\vert K \vert}`$
 - Overgangs matrix: $`A = \{a_{kj}\},`$ hvor $` a_{kj} = p(z_{n+1} = j\vert z_n = k) = \frac{1}{\vert K \vert}`$
-- Emissions sandsynigheder: $`\Phi = \{\phi_k(x_n) \sim \mathcal{N}(\mu_k, \Sigma)\}`$
-
+- Emissions parametre: $`\Phi = \{\phi_k(x_n) \sim \mathcal{N}(\mu_k, \Sigma)\}`$
 
 Hvor k er state og n er tidspunkt i sekvensen.
 
