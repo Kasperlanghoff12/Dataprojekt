@@ -28,7 +28,7 @@ Hele processen for vores data er vist i figur 3. Efter at DNA- eller RNA-prøver
     <em>Figur 3</em>
 </p>
 
-Dette bliver konverteret til en BigWig-fil, som indeholder en værdi for, hvor meget hver position af genets sekvens er afdækket af reads fra FASTQ-filen, dvs. hvor meget data der er læst på hver position. Dette ses i “score”-kolonnen i figur 4, som er selve vores responsvariabel. Vi har også en annoteringsfil, der giver information om, hvor i BigWig-filen, de specifikke gener og transskriptioner er. Vi bruger så BigWig-filen og annoteringsfilen i sammenhold, så vi kan modellere afdækningen af specifikke gener og transskriptioner. Der er tale om en tidsserie, da krav om uafhængighed ikke er opfyldt, hvilket kan ses i autocorrelationsplottet i figur 6.
+Dette bliver konverteret til en BigWig-fil, som indeholder en værdi for, hvor meget hver position af genets sekvens er afdækket af reads fra FASTQ-filen, dvs. hvor meget data der er læst på hver position. Dette ses i “score”-kolonnen i figur 4, som er selve vores responsvariabel. Vi har også en annoteringsfil, der giver information om, hvor i BigWig-filen, de specifikke gener og transskriptioner er. Vi bruger så BigWig-filen og annoteringsfilen i sammenhold, så vi kan modellere afdækningen af specifikke gener og transskriptioner. Der er tale om en sekventiel data, da krav om uafhængighed ikke er opfyldt, hvilket kan ses i autocorrelationsplottet i figur 6. 
 <p>
     <img width="800" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/5aaccbe1-0c13-4771-90ef-996d895be780">
     <br>
@@ -102,9 +102,17 @@ for (i in 1:length(ctrl)) {
 ## Modellering
 
 ### HMM
-
 - Sekventiel data
+Som beskrevet i vores databeskrivelse, arbejder vi med sekventielle data i form af nukleotidbasepar langs en DNA-streng. I sekventielle data gælder antagelsen om identisk og uafhængig fordeling (i.i.d) ikke. Vi udnytter de sekventielle mønstre, som korrelation mellem nærtliggende observationer. Derfor giver det mening for os at anvende Markov-modeller, hvor der er en antagelse om, at fremtidige forudsigelser kun afhænger af de mest nylige observationer. Da vi forsøger at skelne mellem to tilstande, defekt og ikke-defekt i termineringen, introducerer vi en Hidden Markov Model (HMM). Her repræsenterer de to tilstande vores skjulte "states", mens vores observerede data er forskellen mellem vores transformerede kontrol- og sampledata.
+
 - HMM initiering og fitting
+Vi starter med at definere en HMM med to states og en emissionsmodel, der følger en independent gaussian fordeling. Det vil sige at de to states, defekt og ingen defekt, hver især følger en normalfordeling, som er uafhængig af den anden. Så vi har:
+- Antal tilstande: $K = \{1, 2\}$
+- Skjulte variable: $Z = \{z_1, z_2, ..., z_N\}$
+- Observerede variable: $X = \{x_1, x_2, ..., x_N\}$
+
+
+
 - ```{r}
   hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
   hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
