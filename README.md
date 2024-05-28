@@ -131,7 +131,7 @@ Nu hvor vi har initieret modellens parametre, kan vi fitte den til vores data ve
 hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
 ```
 
-Nu har vi altså fundet mængden af stadier som individuelt er de mest sandsynlige for sekvensen. Vi er dog opmærksomme på at defekter i transkriptermineringen, ikke kan genopstå, så rent pratisk, kan stadiet kun få fra 1 til 2 én gang og tilsvarende kun gå tilbage fra 2 til 1 én gang. Vi er derfor nødt til at bruge en mere robust fremgangsmåde, som vi i stedet finder den mest sandsynlige sekvens af skjulte stadier. Til dette bruger vi Viterbi-algoritmen, som finder stien igennem et gitterdiagram af skjulte states, med den højeste sandsynlighed:
+Nu har vi identificeret de mest sandsynlige stadier individuelt for sekvensen. Vi er dog opmærksomme på, at defekter i transkriptionstermineringen ikke kan genopstå. Derfor kan stadiet praktisk talt kun skifte fra 1 til 2 én gang og tilsvarende kun skifte tilbage fra 2 til 1 én gang. Vi er derfor nødt til at anvende en mere robust metode for at finde den mest sandsynlige sekvens af skjulte stadier. Til dette bruger vi Viterbi-algoritmen, som finder den sti gennem et gitterdiagram af skjulte tilstande med den højeste sandsynlighed:
 
 ```{r}
 viterbi = getViterbi(hmm_fitted, curr.data.list)
