@@ -107,9 +107,9 @@ Som beskrevet i vores databeskrivelse, arbejder vi med sekventielle data i form 
 
 - HMM initiering og fitting
 Vi starter med at definere en HMM med to states og en emissionsmodel, der følger en independent gaussian fordeling. Det vil sige at de to states, defekt og ingen defekt, hver især følger en normalfordeling, som er uafhængig af den anden. Så vi har:
-  - Antal tilstande: \(K = \{1, 2\}\)
-  - Skjulte variable: \(Z = \{z_1, z_2, \ldots, z_N\}\)
-  - Observerede variable: \(X = \{x_1, x_2, \ldots, x_N\}\)
+- Antal tilstande: $K = \{1, 2\}$
+- Skjulte variable: $Z = \{z_1, z_2, ..., z_N\}
+- Observerede variable: $X = \{x_1, x_2, ..., x_N\}
 
 
 
