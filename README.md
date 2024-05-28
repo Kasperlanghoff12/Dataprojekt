@@ -113,13 +113,13 @@ Vi starter med at definere en HMM med to states og en emissionsmodel, der følge
 - Observerede variable: $`X = \{x_1, x_2, ..., x_N\}`$
 
 Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$:
-- Initielle sandsynligheder: $`\pi = \{\pi_1, \pi_2\}, \pi_k = p(z_{1k} = 1)`$
-- Transitions matrix: $`A = \{a_{kj}\},`$ hvor $` a_{kj} = p(z_{n+1} = j\vert z_n = k)`$
+- Initielle sandsynligheder: $`\pi = \{\pi_1, \pi_2\}, \pi_k = p(z_{1k} = 1) = \{\frac{1}{2}, \frac{1}{2}\}`$
+- Transitions matrix: $`A = \{a_{kj}\},`$ hvor $` a_{kj} = p(z_{n+1} = j\vert z_n = k) = \frac{1}{\vert K \vert}`$
 - Emissions sandsynigheder: $`\Phi = \{\phi_k(x_n)\} \sim \mathcal{N}(\mu_k, \Sigma)`$
 
 Hvor k er state og n er tidspunkt i sekvensen.
 
-Dette udførte vi i r med koden:
+Dette udførte vi i r med vha. funktioner fra STAN pakken. Vi brugte koden:
 
 ```{r}
 hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
