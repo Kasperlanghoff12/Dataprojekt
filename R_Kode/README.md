@@ -1,6 +1,6 @@
 # Readthrough_analysis R-kode oversigt
 
-Under projektforløbet har vi bidraget til at generalisere og automatisere det readthrough_analysis script, som SLA tidligere har udarbejdet.
+Under projektforløbet har vi bidraget til at generalisere og automatisere det readthrough_analysis script, som Søren Lykke Andersen (SLA) tidligere har udarbejdet.
 Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funktioner) for at gøre scriptet mere overskueligt. Dette er ikke af praktiske årsager, og det er ikke hensigten, at scriptet skal køres på denne måde.
 
 ### Bidrag
