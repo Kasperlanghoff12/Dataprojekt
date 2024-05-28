@@ -110,13 +110,17 @@ Vi starter med at definere en HMM med to states og en emissionsmodel, der følge
 - Skjulte variable: $`Z = \{z_1, z_2, ..., z_N\}`$
 - Observerede variable: $`X = \{x_1, x_2, ..., x_N\}`$
 
-Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \phi\}`$:
+Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$:
 - Initielle sandsynligheder: $`\pi = \{\pi_1, \pi_2\}, \pi_k = p(z_{1k} = 1)`$
-- Transitions matrix: $`A = \{a_{ij}\}, a_{ij} = p(z_n+1 = j\vert z_n = i)`$
-- Emissions sandsynigheder: $`\phi = \{a_{ij}\}, a_{ij} = p(z_n+1 = j\vert z_n = i)`$
+- Transitions matrix: $`A = \{a_{kj}\},`$ hvor $` a_{kj} = p(z_n+1 = j\vert z_n = k)`$
+- Emissions sandsynigheder: $`\Phi = \{\phi_k(x_n)\} \sim \mathcal{N}(x_n \vert \mu_k, \Sigma)`$
+
+Hvor k er state og n er tidspunkt i sekvensen.
 
 - ```{r}
   hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
+  ```
+- ```{r}  
   hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
   ```
     - Beskrivelse af states
