@@ -5,6 +5,6 @@ Vi har, vha. vores wrapper, kørt readthrough_analysis scriptet på genomeDK clu
 
 Dette har resulteret i et samlet dataset på 20.772 observationer. 
 
-I dataframe.md filen ligger der 1.000 tilfældigt samplet observationer fra det fulde dataset. 
+I sample_dataset.md filen ligger der 1.000 tilfældigt samplet observationer fra det fulde dataset. 
 
-I dataframe.csv filen ligger det fulde dataset i csv-format. 
+I dataset.csv filen ligger det fulde dataset i csv-format. 
