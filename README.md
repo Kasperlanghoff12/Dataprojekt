@@ -121,22 +121,22 @@ Hvor k er state og n er tidspunkt i sekvensen.
 
 Dette udførte vi i r med koden:
 
-- ```{r}
-  hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
-  ```
+```{r}
+hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
+```
 
 Nu hvor vi har initieret modellens parametre, kan vi fitte den til vores data ved at bruge den rekursive forward-backward algoritme, vha. EM-algoritmen, hvor vi itererer op 50 gange indtil vores parametre har er konvergeret. Koden til dette:
   
-- ```{r}  
-  hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
-  ```
+```{r}  
+hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
+```
 
 Nu har vi altså fundet mængden af stadier som individuelt er de mest sandsynlige for sekvensen. Vi er dog opmærksomme på at defekter i transkriptermineringen, ikke kan genopstå, så rent pratisk, kan stadiet kun få fra 1 til 2 én gang og tilsvarende kun gå tilbage fra 2 til 1 én gang. Vi er derfor nødt til at bruge en mere robust fremgangsmåde, som vi i stedet finder den mest sandsynlige sekvens af skjulte stadier. Til dette bruger vi Viterbi-algoritmen, som finder stien igennem et gitterdiagram af skjulte states, med den højeste sandsynlighed:
 
-- ```{r}
-  viterbi = getViterbi(hmm_fitted, curr.data.list)
-  states = as.integer(viterbi[['GOI']])
-  ```
+```{r}
+viterbi = getViterbi(hmm_fitted, curr.data.list)
+states = as.integer(viterbi[['GOI']])
+```
 
 På denne måde har vi nu en måde at bestemme hvorvidt der er defekt i genet ved at se om sekvensen af gentranskriberingen på noget tidspunkt er i tilstand 2.
 
