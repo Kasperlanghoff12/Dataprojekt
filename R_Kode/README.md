@@ -8,9 +8,12 @@ Vi har brudt hele den samlede readthrough_analysis kode op i mindre dele (funkti
 * R-filer med prefixet 'SLA' er udelukkende produceret af SLA.
 * Følgende 'funktioner' er udarbejdet af os, i samarbejde med SLA:
   - check_upstream_signal
-    * Her udregnes forskellen mellem signalet fra kroppen (elongering) og opstrøms-signalet.
-  - hmmm_and_ds_fitting
+    * I dette kode-stykke udregnes forskellen mellem signalet fra kroppen (elongering) og opstrøms-signalet.
+  - hmm_and_ds_fitting
+    * Vi forsøger først at fitte en HMM på vores kontrol fratrukket prøven, for at påvise termineringsdefekten. Hvis dette lykkes,                  fortsætter vi med, at fitte en sigmoidal-kurve (vi foretrækker en double-sigmoidal kurve), for at beskrive defekten. 
   - load_GOI
+    * Her benytter vi et gen-navn (GOI, i.e. "Gene of Interest") sammen med vores annoteringsfil til at bestemme den region (range) vi er           interesserede i, for det aktuelle gen, med forbehold for strand. Herefter benytter vi denne range til at lave en dataframe med coverage
+      for vores kontrol & sample, på de positioner vi har udledt.
   - log_2_transform
   - normalize_to_gene_body_signal
   - subtract_ctrl_signal
