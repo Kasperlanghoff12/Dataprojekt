@@ -117,7 +117,7 @@ Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$. Her 
 - Overgangs matrix: $`A = \{a_{kj}\},`$ hvor $` a_{kj} = p(z_{n+1} = j\vert z_n = k) = \frac{1}{\vert K \vert}`$
 - Emissions parametre: $`\Phi = \{\phi_k(x_n) \sim \mathcal{N}(\mu_k, \Sigma)\}`$
 
-for $`k \in 1, ..., K`$ tilstande og $`n = 1, ..., N`$ tidspunkter.
+for $`k \in 1, ..., K`$ tilstande og $`n \in 1, ..., N`$ tidspunkter.
 
 Dette udførte vi i r med vha. funktioner fra STAN pakken. Vi brugte koden:
 
