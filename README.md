@@ -95,6 +95,11 @@ for (i in 1:length(ctrl)) {
 
 
 ## Algoritme
+
+For hvert gen har vi typisk flere transskript-varianter angivet i annoteringen. Derfor er det væsentligt at afgøre, hvilket Transscript-Start-Site (TSS) og Transscript-End-Site (TES), vi vil benytte i vores analyse af et gen. Vi har derfor konstrueret en algoritme, der skal bestemme den region (TSS:TES), hvor transskriptions signalet er mest fremtrædende. Med andre ord ønsker vi at identificere de grænser, der med størst sandsynlighed afspejler det fulde transskript.
+
+
+
 - Algoritme til at finde Termination-Start-Site (TSS) og Termination-End-Site (TES).
 - Annoteringen indeholder typisk flere transkripter (med hver sit TSS & TES) pr. gen. Derfor skal vi afgøre, hvilken TSS & TES vi bruger.
 - Den valgte TSS & TES behøver ikke nødvendigvis have oprindelse i samme transkript.
