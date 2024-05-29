@@ -103,7 +103,7 @@ for (i in 1:length(ctrl)) {
 ```
 
 
-## Algoritme
+## Identificering af transskriptions-sites
 
 Det er en essentiel del af hele vores pipeline at bestemme, hvilken region (dvs. start- & slutpunkt) vi antager transskriptionen foregår i, og derved vil bestemmelsen af denne danne grundlag for det data vi benytter i den senere modellering. 
 
