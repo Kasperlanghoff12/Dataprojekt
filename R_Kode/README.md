@@ -41,7 +41,7 @@ Nedenstående tabel indeholder en kort oversigt over projektets kode-bidrag. Und
   - wrapper
     * Vores wrapper er designet til at automatisere kørslen af readthrough_analysis på genomeDK's cluster med muligheden for at behandle            flere GOI's i træk, samtidig med at man kan specificere den ønskede beregningskapacitet ved at angive antallet af kerner og                   mængden af RAM.
   
-* De følgende funktioner er kun blevet let tilpasset af SLA (udelukkende tilpasset med henblik på at fungere sammen med ændret kode fra det tidligere readthrough_analysis script).
+* De følgende funktioner er kun blevet tilpasset af SLA for at forblive kompatible med ændringerne i den tidligere readthrough_analysis-kode.
   - remove_batch_effects
   - visualisation_prep
   - visualisation
