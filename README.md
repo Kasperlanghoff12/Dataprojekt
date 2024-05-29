@@ -25,7 +25,7 @@ Vores proces ses i figur 3. Efter sekventeringen starter vores proces med at kla
 <p>
     <img width="650" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/31249b78-e09b-45ab-b64f-deea9c6bd460">
     <br>
-    <em>Figur 3</em>
+    <em>Figur 3 - Projekt pipeline</em>
 </p>
 
 
@@ -33,18 +33,18 @@ Vores proces ses i figur 3. Efter sekventeringen starter vores proces med at kla
 
 ### Beskrivelse
 
-Hele processen for vores data er vist i figur 3. Efter at DNA- eller RNA-prøver er blevet sekventeret i små dele kaldet "reads", bliver de mange millioner sekvenslæsninger opbevaret i en FASTQ-fil. FASTQ-filen er et tekstbaseret filformat, der indeholder reads som tekststrenge, eksempelvis sekvensen af nukleotider: "GATTTGGGGTTC....". Derudover inkluderer hver FASTQ-fil også information om kvaliteten eller pålideligheden af læsningen for hver enkelt base i sekvensen.
+Hele processen for vores data er vist i figur 4. Efter at DNA- eller RNA-prøver er blevet sekventeret i små dele kaldet "reads", bliver de mange millioner sekvenslæsninger opbevaret i en FASTQ-fil. FASTQ-filen er et tekstbaseret filformat, der indeholder reads som tekststrenge, eksempelvis sekvensen af nukleotider: "GATTTGGGGTTC....". Derudover inkluderer hver FASTQ-fil også information om kvaliteten eller pålideligheden af læsningen for hver enkelt base i sekvensen.
 <p>
     <img width="600" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/10cd3282-47dd-49b7-b935-0934898d9121">
     <br>
-    <em>Figur 3</em>
+    <em>Figur 4 - Data pipeline </em>
 </p>
 
 Dette bliver konverteret til en BigWig-fil, som indeholder en værdi for, hvor meget hver position af genets sekvens er afdækket af reads fra FASTQ-filen, dvs. hvor meget data der er læst på hver position. Dette ses i “score”-kolonnen i figur 4, som er selve vores responsvariabel. Vi har også en annoteringsfil, der giver information om, hvor i BigWig-filen, de specifikke gener og transskriptioner er. Vi bruger så BigWig-filen og annoteringsfilen i sammenhold, så vi kan modellere afdækningen af specifikke gener og transskriptioner. Der er tale om en sekventiel data, da krav om uafhængighed ikke er opfyldt, hvilket kan ses i autocorrelationsplottet i figur 6. 
 <p>
     <img width="800" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/5aaccbe1-0c13-4771-90ef-996d895be780">
     <br>
-    <em>Figur 4</em>
+    <em>Figur 5 - Eksempel på de filtyper, vi arbejder med</em>
 </p>
 
 
@@ -65,14 +65,14 @@ Et eksempel på vores data ses i figur 5, hvor x-aksen er position på genet, og
 <p>
     <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/1fe6dbb5-b324-4bba-a9ee-3ef65c098a99">
     <br>
-    <em>Figur 5</em>
+    <em>Figur 6 - Test-data (blå kurve) og kontrol-data (rød kurve)</em>
 </p>
 
 Der er muligvis biases i data, da de maskiner, der læser sekvenserne, kan producere støj. Derudover er der altid mulighed for menneskelige fejl. Vi vil dog antage, at biases er minimale, da sekvenserne er blevet læst på et laboratorium i et kontrolleret miljø.
 <p>
     <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/89b5271e-b39c-4069-a133-87aa2563c0a9">
     <br>
-    <em>Figur 6</em>
+    <em>Figur 7 - Autocorrelationsplot for vores observerede variable</em>
 </p>
 
 ### Preprocessering
@@ -121,12 +121,12 @@ De to figurer forneden (figur 7. & 8.) demonstrerer, hvilke mulige TSS'er og TES
     <td>
       <img width="450" alt="TSS & TES kandidater" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/e37d25c7-b09a-46a4-930c-98d13b8d16e9">
       <br>
-      <em>Figur 7 - TSS & TES kandidater</em>
+      <em>Figur 8 - TSS & TES kandidater</em>
     </td>
     <td>
       <img width="450" alt="Endelig TSS & TES" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/5bf2960f-ad6c-4d95-afcf-195d6d2c5fba">
       <br>
-      <em>Figur 8 - Endelig TSS & TES</em>
+      <em>Figur 9 - Endelig TSS & TES</em>
     </td>
   </tr>
 </table>
@@ -137,7 +137,7 @@ De to figurer forneden (figur 7. & 8.) demonstrerer, hvilke mulige TSS'er og TES
 
 ### HMM
 
-Som beskrevet i vores databeskrivelse, arbejder vi med sekventielle data i form af nukleotidbasepar langs en DNA-streng. I sekventielle data gælder antagelsen om identisk og uafhængig fordeling (i.i.d) ikke. Vi udnytter de sekventielle mønstre, som korrelation mellem nærtliggende observationer. Derfor giver det mening for os at anvende Markov-modeller, hvor der er en antagelse om, at fremtidige forudsigelser kun afhænger af de mest nylige observationer. Da vi forsøger at skelne mellem to tilstande, defekt og ikke-defekt i termineringen, introducerer vi en Hidden Markov Model (HMM). Her repræsenterer de to tilstande vores skjulte "states", mens vores observerede data er forskellen mellem vores transformerede kontrol- og sampledata.
+Som beskrevet i vores databeskrivelse, arbejder vi med sekventielle data i form af nukleotidbasepar langs en DNA-streng. I sekventielle data gælder antagelsen om identisk og uafhængig fordeling (i.i.d) ikke. Vi udnytter de sekventielle mønstre, som korrelation mellem nærtliggende observationer. Derfor giver det mening for os at anvende Markov-modeller, hvor der er en antagelse om, at fremtidige forudsigelser kun afhænger af de mest nylige observationer. Da vi forsøger at skelne mellem to tilstande, defekt og ikke-defekt i termineringen, introducerer vi en Hidden Markov Model (HMM). Her repræsenterer de to tilstande vores skjulte "states", mens vores observerede data er forskellen mellem vores transformerede kontrol- og sampledata. Modellen ses grafisk i figur 10.
 ```Denne model udspringer fra teorien i Cristopher M. Bishop, Pattern Recognition and Machine Learning, 2006, kap 13.```
 
 Vi starter med at definere en HMM med to states og en emissionsmodel, der følger en independent gaussian fordeling med antagelsen om delt kovariansmatrix. Det vil sige at de to states, 2 = defekt og 1 = ingen defekt, hver især følger en normalfordeling, som er uafhængig af den anden, men med samme varians. Så vi har:
@@ -145,6 +145,13 @@ Vi starter med at definere en HMM med to states og en emissionsmodel, der følge
 - Antal tilstande: $`K = \{1, 2\}`$
 - Skjulte variable: $`Z = \{z_1, z_2, ..., z_N\}`$
 - Observerede variable: $`X = \{x_1, x_2, ..., x_N\}`$
+
+<p>
+    <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/fd64f60d-6cce-44ec-b18e-20a2d79d0139">
+    <br>
+    <em>Figur 10 - Hidden Markov Model</em>
+</p>
+
 
 Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$. Her initieres $\pi$ og A uniformt og parametrene til normalfordelingen vha. K-means:
 - Initielle sandsynligheder: $`\pi = \{\pi_1, \pi_2\}, \pi_k = p(z_{1k} = 1) = \frac{1}{\vert K \vert}`$
