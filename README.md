@@ -193,4 +193,7 @@ På denne måde har vi nu en måde at bestemme hvorvidt der er defekt i genet ve
 - Hvis fitAndCategorize returnerer 'ambigious' fitter vi både en sigmoidal og en double-sigmoidal, hvorefter vi vælger den med højest R^2.
 - Typisk vil vi gøre brug af sigmoidal, hvis der starter et nyt gen kort efter termineringen af GOI. Dvs. signalerne fra de to gener flyder sammen - Ellers foretrækker vi at benytte double-sigmoid. 
 
+## Kode & Demonstration
+
 ## Perspektivering
+
