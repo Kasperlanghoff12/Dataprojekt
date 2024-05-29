@@ -21,3 +21,25 @@ I kodestykket nedenfor har vi beregnet middelværdien af rt_int_fitted (median-s
 [1] 0.5262786
 ```
 Det fremgår tydeligt, at der er en signifikant forskel i middelværdierne, og det er derfor, at vi konkluderer, at analysen er for følsom.
+
+## Demonstration
+
+<table>
+  <tr>
+    <td>
+      <img width="450" alt="TSS & TES kandidater" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/a028a564-4fca-4cce-90a1-6e3244d0ce1c">
+      <br>
+      <em>Figur 1 - HELLS</em>
+    </td>
+    <td>
+      <img width="450" alt="Endelig TSS & TES" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/961ed17d-e911-4966-bb6e-e6b3313dffa0">
+      <br>
+      <em>Figur 2 - NOP56</em>
+    </td>
+    <td>
+      <img width="450" alt="Endelig TSS & TES" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/0e794841-fa82-4983-9f33-41d851277b25">
+      <br>
+      <em>Figur 3 - RPL10</em>
+    </td>
+  </tr>
+</table>
