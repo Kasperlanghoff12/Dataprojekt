@@ -7,14 +7,19 @@ I denne tabel findes en kortfattet oversigt over kode bidrag:
 
 | Funktion      | Fælles indsats| SLA           | 
 | ------------- | ------------- | ------------- |
-| Content Cell  | Content Cell  | Content Cell  | 
-| Content Cell  | Content Cell  | Content Cell  | 
-| Content Cell  | Content Cell  | Content Cell  | 
-| Content Cell  | Content Cell  | Content Cell  | 
-| Content Cell  | Content Cell  | Content Cell  | 
-| Content Cell  | Content Cell  | Content Cell  | 
-| Content Cell  | Content Cell  | Content Cell  | 
-| Content Cell  | Content Cell  | Content Cell  | 
+| check_upstream_signal  | X  |   | 
+| hmm_and_ds_fitting  | X  |   | 
+| load_GOI  | X  |  | 
+| log_2_transform  | X  |   | 
+| normalize_to_gene_body_signal  | X  |   | 
+| subtract_ctrl_signal  | X  |   | 
+| wrapper  | X  |   | 
+| remove_batch_effects  |   | X  | 
+| visualisation_prep  |   | X  | 
+| visualisation  |   | X  | 
+| SLA_adj_function  |   | X  | 
+| SLA_binning_function  |   | X  | 
+| SLA_sample_subtract_hmm  |   | X  | 
 
 
 
@@ -25,7 +30,7 @@ I denne tabel findes en kortfattet oversigt over kode bidrag:
   - hmm_and_ds_fitting
     * Vi forsøger først at fitte en HMM på vores kontrol fratrukket prøven, for at påvise termineringsdefekten. Hvis dette lykkes,                  fortsætter vi med, at fitte en sigmoidal-kurve (vi foretrækker en double-sigmoidal kurve), for at beskrive defekten. 
   - load_GOI
-    * Her benytter vi et gen-navn (GOI, i.e. "Gene of Interest") sammen med vores annoteringsfil til at bestemme den region (range) vi er           interesserede i, for det aktuelle gen, med forbehold for strand (+ eller - DNA-streng). Herefter benytter vi denne range til at lave en dataframe med coverage
+    * Her benytter vi et gen-navn (GOI, i.e. "Gene of Interest") sammen med vores annoteringsfil til at bestemme den region (range) vi er           interesserede i, for det aktuelle gen, med forbehold for strand (+ eller - DNA-streng). Herefter benytter vi denne range til at lave en       dataframe med coverage
       for vores kontrol & sample, på de positioner vi har udledt.
   - log_2_transform
     * Vi laver en log2 transformation af signalet for at gøre det mere symmetrisk, stabilt og lettere fortolkeligt. 
