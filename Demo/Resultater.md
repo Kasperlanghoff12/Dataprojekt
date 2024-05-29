@@ -23,7 +23,7 @@ I kodestykket nedenfor har vi beregnet middelværdien af rt_int_fitted (median-s
 Det fremgår tydeligt, at der er en signifikant forskel i middelværdierne, og det er derfor, at vi konkluderer, at analysen er for følsom.
 
 ## Demonstration
-
+I tabellen nedenfor præsenteres tre figurer, der repræsenterer tre gener, som vi har analyseret ved hjælp af vores readthrough_analysis scriptet. Hver figur indeholder to plots: det øverste plot viser det normaliserede signal fra prøven sammen med det normaliserede signal fra kontrollen, mens det nederste plot viser forskellen mellem det normaliserede prøvesignal og det normaliserede kontrolsignal.
 <table>
   <tr>
     <td>
