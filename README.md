@@ -121,18 +121,18 @@ For hvert gen har vi typisk flere transskript-varianter angivet i annoteringen. 
 Dette opnår vi ved at kigge på hhv. stigning og fald i signal i hhv. opstrøms- og nedstrømgsregionen i nærheden af de mulige TSS'er og TES'er. I store træk benytter vi den TSS med umiddelbart størst stigning i signal og den TES med umiddelbart største fald i signal.
 Desuden tager algoritmen højde for, hvornår der starter et nyt gen, så 'søgningen' efter en TSS og en TES kun udfolder sig inde for det aktuelle GOI's domæne. 
 
-De to figurer forneden (figur 7. & 8.) demonstrerer, hvilke mulige TSS'er og TES'er algoritmen evaluerer for genet 'GAPDH' og hvilken TSS og TES der vælges. Den røde kurve er vores kontrol-data mens den blå kurve udgør vores prøve.
+De to figurer forneden (figur 9. & 10.) demonstrerer, hvilke mulige TSS'er og TES'er algoritmen evaluerer for genet 'GAPDH' og hvilken TSS og TES der vælges. Den røde kurve er vores kontrol-data mens den blå kurve udgør vores prøve.
 <table>
   <tr>
     <td>
       <img width="450" alt="TSS & TES kandidater" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/128427973/e37d25c7-b09a-46a4-930c-98d13b8d16e9">
       <br>
-      <em>Figur 8 - TSS & TES kandidater</em>
+      <em>Figur 9 - TSS & TES kandidater</em>
     </td>
     <td>
       <img width="450" alt="Endelig TSS & TES" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/770cb179-25c2-4302-b64e-1f49739899ff">
       <br>
-      <em>Figur 9 - Endelig TSS & TES</em>
+      <em>Figur 10 - Endelig TSS & TES</em>
     </td>
   </tr>
 </table>
@@ -153,7 +153,7 @@ Vi starter med at definere en HMM med to states og en emissionsmodel, der følge
 <p>
     <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/fd64f60d-6cce-44ec-b18e-20a2d79d0139">
     <br>
-    <em>Figur 10 - Hidden Markov Model</em>
+    <em>Figur 11 - Hidden Markov Model</em>
 </p>
 
 
