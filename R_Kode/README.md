@@ -20,7 +20,7 @@ Nedenstående tabel indeholder en kort oversigt over projektets kode-bidrag. Und
 | SLA_adj_function  |   | X  | 
 | SLA_binning_function  |   | X  | 
 | SLA_sample_subtract_hmm  |   | X  | 
-
+ <br>
 
 
 * R-filer med prefixet 'SLA' er udelukkende produceret af SLA. De indgår derfor også kun i dette repository, da de bliver brugt i readthrough_analysis scriptet.
