@@ -94,7 +94,7 @@ Når vi kender kroppen, kan vi normalisere dem ved at trække medianen af kroppe
 body.norm.factors = apply(log2_GOI_data[TSS_row:TES_row,], 2, median)
 log2_GOI_data.bodynorm = t(t(log2_GOI_data) - body.norm.factors)
 ```
-Til sidst trækker vi sample genet fra kontrol genet, så vi får differencen imellem dem. Således burde vi få en kurve der viser defekten i sample-genet, og vi er derfor klar til at modellere på terminerings-defekten.
+Til sidst trækker vi sample genet fra kontrol genet, så vi får differencen imellem dem. Således burde vi få en kurve der viser defekten i sample-genet, og vi er derfor klar til at modellere på terminerings-defekten. I figur 8 ses dette med et eksempel-gen.
 
 ```{r}
 log2_GOI_data.bodynorm.ctrlsubtract = log2_GOI_data.bodynorm
