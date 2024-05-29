@@ -194,9 +194,9 @@ På denne måde har vi nu en måde at bestemme hvorvidt der er defekt i genet ve
 - Typisk vil vi gøre brug af sigmoidal, hvis der starter et nyt gen kort efter termineringen af GOI. Dvs. signalerne fra de to gener flyder sammen - Ellers foretrækker vi at benytte double-sigmoid. 
 
 ## Kode & Demonstration
-I mappen "R_Kode" ligger dokumentet "KODEOVERSIGT.md", som angiver bidragydernes til de forskellige kodestykker og indeholder en kort beskrivelse af de enkelte kodestykkers funktionalitet.
+I mappen "R_Kode" ligger dokumentet "KODEOVERSIGT.md", som angiver bidragsyderne til de forskellige kodestykker og indeholder en kort beskrivelse af de enkelte kodestykkers funktionalitet.
 
-I mappen "Demo" ligger dokumentet "RESULTATER.md", som præsenterer resultaterne fra vores analyse, udført med readthrough_analysis scriptet. Dokumentet inkluderer en beskrivelse af genereringen af vores dataset, relevante bemærkninger samt en figurativ demonstration af scriptets analyse af tre forskellige gener.
+I mappen "Demo" ligger dokumentet "RESULTATER.md", som præsenterer resultaterne fra vores analyse, udført med readthrough_analysis scriptet. Dokumentet inkluderer en beskrivelse af genereringen af vores dataset, relevante bemærkninger samt en visuel demonstration af scriptets analyse af tre forskellige gener.
 
 Dokumenterne giver også en forklaring på resten af indholdet i hver af de respektive mapper.
 ## Perspektivering
