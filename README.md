@@ -6,14 +6,16 @@ Molekylærbiologiens centrale dogme beskriver, hvordan det genetiske information
 <p>
     <img width="450" alt="central_d" src="https://github.com/OttoJHTX/dataprojekt/assets/49984447/69349634-7729-42d3-898b-f45b653eb80e">
     <br>
-    <em>Figur 1</em>
+    <em>Figur 1 - Det centrale dogme (Transskriptionen foregår i processen fra DNA til
+RNA).</em>
 </p>
 Hvert enkelt trin i det centrale dogme er fundamentalt for alt cellulært liv. Transskriptionen – dannelsen af RNA ved aflæsning af DNA’et fra et givet gen – er i sig selv en kompliceret proces, der består af en lang række koordinerede trin, der udføres af et stort antal proteiner. Transskriptionsprocessen kan deles op i tre faser – initiering, elongering og terminering. I forbindelse med initieringen rekrutteres en polymerase til genet vha. en promoter og påbegynder elongeringen, hvorved genet aflæses i en bestemt retning (se figur 2). Når polymerasen møder en terminator, igangsættes termineringen. Mens initieringen typisk sker fra et defineret område ved promoteren, er termineringen en mere stokastisk proces, hvor polymerasen bremses ned efter mødet med terminatoren og stopper mere eller mindre tilfældigt i nedstrømsregionen. På trods af denne stokasticitet er det dog klart, at processen skal være under stram kontrol, da polymerasen skal være fuldstændigt standset, inden det næste gen begynder. <br> <br>
 
 <p>
     <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/d2554b07-8fc2-4e61-9a99-672af91fad6b">
     <br>
-    <em>Figur 2</em>
+    <em>Figur 2 - Transskription - Promotoren og terminator er begge DNA-sekvenser, der
+markerer henholdsvis starten og afslutningen af transskriptionen.</em>
 </p>
 Således er transskriptions-terminering også en kompliceret proces, der involverer over 50 forskellige proteiner. Defekter i termineringen, hvor polymerasen ikke bremses ordentligt, fører til såkaldt “read-through”, hvor transskriptionen fortsætter længere end normalt i den nedstrøms region. Sådanne defekter kan opstå hos patienter, hvor et eller flere af de involverede proteiner er dysfunktionelle. Det kan også opstå i forbindelse med cellulært stress, som ofte opstår midlertidigt i normale individer, men mere ukontrollerbart i forbindelse med sygdomme som for eksempel kræft. Et åbent spørgsmål i feltet er, hvorvidt read-through blot er en konsekvens af stress, eller om det tjener en funktion og derfor er et forsøg fra cellen på at modvirke stress-tilstanden.
 For at kunne forstå termineringen og dens involverede trin er det relevant at kunne udføre en detaljeret beskrivelse af read-through under forskellige betingelser. Vi har i dette projekt været med til at designe en model og algoritme, der kan lave en kvantitativ beskrivelse af read-through på individuelle gener baseret på transskriptionsdata fra celler udsat for forskellige betingelser.
@@ -21,10 +23,11 @@ For at kunne forstå termineringen og dens involverede trin er det relevant at k
 Vores proces ses i figur 3. Efter sekventeringen starter vores proces med at klargøre data, som beskrevet i Data-afsnittet. Derefter pre-processerer vi vores data med log-transformering og normalisering for at vi kan sammenligne test- og kontrol-gener. Så identificerer vi transskriptionens start- og slut-sites, som definerer de data-områder som vi modellerer på. Vi fitter så for hvert gen en Hidden Markov Model, og bruger Viterbi decoding til at identificere om der er en defekt, og i hvilket område som defekten sker. Hvis der er det, fitter vi en (double) sigmoid til at beskrive defekten.
 <br> <br>
 <p>
-    <img width="650" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/db89a034-2c63-4ea3-91ca-c62bc967e239">
+    <img width="650" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/31249b78-e09b-45ab-b64f-deea9c6bd460">
     <br>
     <em>Figur 3</em>
 </p>
+
 
 ## Data
 
