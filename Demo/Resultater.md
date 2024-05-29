@@ -27,7 +27,7 @@ I tabellen nedenfor præsenteres tre figurer, der repræsenterer tre gener (genn
 ### Visuelle Indikatorer i Plots
 I plottet er TSS og TES markeret med tynde, sorte, prikkede vertikale linjer, mens de lyserøde, stiplede vertikale linjer indikerer området for vores (dobbelt)-sigmoidale fitting. En fed, lyserød, horisontal streg under plottet indikerer det område, hvor vores Hidden Markov Model (HMM) befinder sig i tilstand 2, mens de lyserøde, stiplede, horisontale streger under nogle af plottene angiver, at vores HMM er vendt tilbage til tilstand 1.
 ### Fortolkning
-I alle tre analyser er resultatet det samme: en påvist termineringsdefekt. Dette er tydeligt demonstreret i de nederste plots, hvor den dobbelte sigmoid-kurve viser, at prøven fortsat udsender et betydeligt signal, efter at transskriptionen er blevet afsluttet.
+I alle tre analyser er resultatet det samme: en påvist termineringsdefekt. Dette er tydeligt demonstreret i de nederste plots, hvor den dobbelte sigmoid-kurve viser, at prøven fortsat udsender et betydeligt signal, efter at transskriptionen skulle være termineret.
 <table>
   <tr>
     <td>
