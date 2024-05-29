@@ -105,6 +105,12 @@ for (i in 1:length(ctrl)) {
 }
 ```
 
+<p>
+    <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/3de0da11-79e6-4261-a73e-3b50b21c9382">
+    <br>
+    <em>Figur 8 - Autocorrelationsplot for vores observerede variable</em>
+</p>
+
 
 ## Identificering af transskriptions-sites
 
