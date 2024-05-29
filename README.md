@@ -106,7 +106,7 @@ for (i in 1:length(ctrl)) {
 ```
 
 <p>
-    <img width="850" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/3de0da11-79e6-4261-a73e-3b50b21c9382">
+    <img width="850" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/87d9bf82-1532-49b2-a4d5-4f1fffe17324">
     <br>
     <em>Figur 8 - Ingen normalisering -> Log-transformering -> Median fratrukket</em>
 </p>
