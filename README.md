@@ -19,7 +19,7 @@ Således er transskriptions-terminering også en kompliceret proces, der involve
 For at kunne forstå termineringen og dens involverede trin er det relevant at kunne udføre en detaljeret beskrivelse af read-through under forskellige betingelser. Vi har i dette projekt været med til at designe en model og algoritme, der kan lave en kvantitativ beskrivelse af read-through på individuelle gener baseret på transskriptionsdata fra celler udsat for forskellige betingelser.
 
 <p>
-    <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/0fb1dd18-694b-4a9a-9b05-a864d3c57c56">
+    <img width="650" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/0fb1dd18-694b-4a9a-9b05-a864d3c57c56">
     <br>
     <em>Figur 2</em>
 </p>
