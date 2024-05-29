@@ -24,8 +24,8 @@ Det fremgår tydeligt, at der er en signifikant forskel i middelværdierne, og d
 
 ## Demonstration
 I tabellen nedenfor præsenteres tre figurer, der repræsenterer tre gener, som vi har analyseret ved hjælp af vores readthrough_analysis scriptet. Hver figur indeholder to plots: det øverste plot viser det normaliserede signal fra prøven sammen med det normaliserede signal fra kontrollen, mens det nederste plot viser forskellen mellem det normaliserede prøvesignal og det normaliserede kontrolsignal.
-
-TSS & TES er markeret med de sorte prikkede vertikale linjer, mens de lyserøde stiplede vertikale linjer angiver området for vores (double)-sigmoidal fitting. Den fede lyserøde horizontale streg under plottet angiver det område, hvor vores HMM befinder sig i tilstand 2. Den lyserøde stiplede horizontale streg under nogle af plotsne angiver, at vores HMM er tilbage i tilstand 1.
+### Visuelle Indikatorer i Plots
+I plottet er TSS og TES markeret med tynde, sorte, prikkede vertikale linjer, mens de lyserøde, stiplede vertikale linjer indikerer området for vores (dobbelt)-sigmoidale fitting. En fed, lyserød, horisontal streg under plottet indikerer det område, hvor vores Hidden Markov Model (HMM) befinder sig i tilstand 2, mens de lyserøde, stiplede, horisontale streger under nogle af plottene angiver, at vores HMM er vendt tilbage til tilstand 1.
 <table>
   <tr>
     <td>
