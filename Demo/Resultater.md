@@ -23,7 +23,7 @@ I kodestykket nedenfor har vi beregnet middelværdien af rt_int_fitted (median-s
 Det fremgår tydeligt, at der er en signifikant forskel i middelværdierne, og det er derfor, at vi konkluderer, at analysen er for følsom.
 
 ## Demonstration
-I tabellen nedenfor præsenteres tre figurer, der repræsenterer tre gener, som vi har analyseret ved hjælp af vores readthrough_analysis scriptet. Hver figur indeholder to plots: det øverste plot viser det normaliserede signal fra prøven sammen med det normaliserede signal fra kontrollen, mens det nederste plot viser forskellen mellem det normaliserede prøvesignal og det normaliserede kontrolsignal.
+I tabellen nedenfor præsenteres tre figurer, der repræsenterer tre gener (generne: HELLS, NOP56 & RPL10), som vi har analyseret ved hjælp af vores readthrough_analysis scriptet. Hver figur indeholder to plots: det øverste plot viser det normaliserede signal fra prøven sammen med det normaliserede signal fra kontrollen, mens det nederste plot viser forskellen mellem det normaliserede prøvesignal og det normaliserede kontrolsignal.
 ### Visuelle Indikatorer i Plots
 I plottet er TSS og TES markeret med tynde, sorte, prikkede vertikale linjer, mens de lyserøde, stiplede vertikale linjer indikerer området for vores (dobbelt)-sigmoidale fitting. En fed, lyserød, horisontal streg under plottet indikerer det område, hvor vores Hidden Markov Model (HMM) befinder sig i tilstand 2, mens de lyserøde, stiplede, horisontale streger under nogle af plottene angiver, at vores HMM er vendt tilbage til tilstand 1.
 ### Fortolkning
