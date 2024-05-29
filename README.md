@@ -124,13 +124,12 @@ De to figurer forneden (figur 7. & 8.) demonstrerer, hvilke mulige TSS'er og TES
       <em>Figur 8 - TSS & TES kandidater</em>
     </td>
     <td>
-      <img width="450" alt="Endelig TSS & TES" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/a5c22b5a-1670-4d16-948e-57824695235b">
+      <img width="450" alt="Endelig TSS & TES" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/770cb179-25c2-4302-b64e-1f49739899ff">
       <br>
       <em>Figur 9 - Endelig TSS & TES</em>
     </td>
   </tr>
 </table>
-
 
 ## Modellering
 
