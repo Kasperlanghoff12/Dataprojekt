@@ -193,15 +193,17 @@ Efter vi har fundet det mest sandsynlige defekte område vha. HMM, kan vi nu fit
 
 Typisk vil vi gøre brug af sigmoidal, hvis der starter et nyt gen kort efter termineringen af genet. Dvs. signalerne fra de to gener flyder sammen - Ellers foretrækker vi at benytte double-sigmoid. 
 
-Vi benytter fitAndCategorize-funktionen fra Sicegar pakken til at afgøre om vi kan fitte en sigmoidal, double-sigmoidal eller ingen. Måden denne funktion fungerer er at forsæge at fitte både sigmoidal og double-sigmoidal kurver til vores data, som er den normaliserede difference mellem kontrol- og sample genet. Den estimerer altså parametrene A, B som er hhv. maks- og min-punkter, $`h_1, h_1`$ som er vækst rater og $`m_1, m_2`$ som er midtpunkter til hhv.:
+Vi benytter fitAndCategorize-funktionen fra Sicegar pakken til at afgøre om vi kan fitte en sigmoidal, double-sigmoidal eller ingen. Måden denne funktion fungerer er at forsæge at fitte både sigmoidal og double-sigmoidal kurver til vores data, som er den normaliserede difference mellem kontrol- og sample genet. Den estimerer altså parametrene A, B som er hhv. maks- og min signalstyrke, $`h_1, h_1`$ som er vækst rater og $`m_1, m_2`$ som er midtpunkter til hhv.:
 
-Sigmoidal: $`frac{A}{1+e^{-x}}`$,
+Sigmoidal: $`\frac{A}{1+e^{-x}}`$,
 
 Double-sigmoidal: $`\frac{A}{1+e^{-h_1(x-m_1)}} + \frac{B}{1+e^{-h_2(x-m_2)}}`$
 
+Hvis ingen af modellerne passer til vores data (hvilket undersøges vha. forskellige kriterier), returnerer funktionen "ambiguous". Hvis kun den ene passer, returnerer den navnet på denne, og hvis begge passer, vælger funktionen den model med laveste AIC score, hvilket er et kriterie, som bruges til at bestemme hvilken machine learning model er bedst for et givent datasæt. Hvis fitAndCategorize returnerer 'ambigious' fitter vi både en sigmoidal og en double-sigmoidal, hvorefter vi vælger den med højest $`R^2`$.
 
-- Hvis fitAndCategorize returnerer 'ambigious' fitter vi både en sigmoidal og en double-sigmoidal, hvorefter vi vælger den med højest R^2.
-- Typisk vil vi gøre brug af sigmoidal, hvis der starter et nyt gen kort efter termineringen af GOI. Dvs. signalerne fra de to gener flyder sammen - Ellers foretrækker vi at benytte double-sigmoid. 
+Herefter bruger vi bruger vi enten doublesigmoidalFitFormula eller sigmoidalFitFormula til, at forudsige signalstyrke for området med defekt ud fra de givne (double) sigmoidal parametre.
+
+Disse fits og forudsigelser bruges til at 
 
 ## Kode & Demonstration
 I mappen "R_Kode" ligger dokumentet "KODEOVERSIGT.md", som angiver bidragsyderne til de forskellige kodestykker og indeholder en kort beskrivelse af de enkelte kodestykkers funktionalitet.
