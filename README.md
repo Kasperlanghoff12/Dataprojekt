@@ -198,7 +198,7 @@ Vi benytter fitAndCategorize-funktionen fra Sicegar pakken til at afgøre om vi 
 
 Sigmoidal: $`\frac{A}{1+e^{-x}}`$,
 
-Double-sigmoidal: $`\frac{A}{1+e^{-h_1(x-m_1)}} + \frac{B}{1+e^{-h_2(x-m_2)}}`$
+Double-sigmoidal: $`\frac{A}{1+e^{-h_1(x-m_1)}} + \frac{B}{1+e^{-h_2(x-m_2)}}`$.
 
 Hvis ingen af modellerne passer til vores data (hvilket undersøges vha. forskellige kriterier), returnerer funktionen "ambiguous". Hvis kun den ene passer, returnerer den navnet på denne, og hvis begge passer, vælger funktionen den model med laveste AIC score, hvilket er et kriterie, som bruges til at bestemme hvilken machine learning model er bedst for et givent datasæt. Hvis fitAndCategorize returnerer 'ambigious' fitter vi både en sigmoidal og en double-sigmoidal, hvorefter vi vælger den med højest $`R^2`$.
 
