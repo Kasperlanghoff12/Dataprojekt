@@ -23,7 +23,7 @@ For at kunne forstå termineringen og dens involverede trin er det relevant at k
 Vores proces ses i figur 3. Efter sekventeringen starter vores proces med at klargøre data, som beskrevet i Data-afsnittet. Derefter pre-processerer vi vores data med log-transformering og normalisering for at vi kan sammenligne test- og kontrol-gener. Så identificerer vi transskriptionens start- og slut-sites, som definerer de data-områder som vi modellerer på. Vi fitter så for hvert gen en Hidden Markov Model, og bruger Viterbi decoding til at identificere om der er en defekt, og i hvilket område som defekten sker. Hvis der er det, fitter vi en (double) sigmoid til at beskrive defekten.
 <br> <br>
 <p>
-    <img width="650" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/31249b78-e09b-45ab-b64f-deea9c6bd460">
+    <img width="650" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/1217d6f3-993a-4012-be6d-40c57454f2fa">
     <br>
     <em>Figur 3 - Projekt pipeline</em>
 </p>
