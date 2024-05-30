@@ -32,14 +32,14 @@ Vores proces ses i figur 3. Efter sekventeringen starter vores proces med at kla
 
 ### Beskrivelse
 
-Hele processen for vores data er vist i figur 4. Efter at DNA- eller RNA-prøver er blevet sekventeret i små dele kaldet "reads", bliver de mange millioner sekvenslæsninger opbevaret i en FASTQ-fil. FASTQ-filen er et tekstbaseret filformat, der indeholder reads som tekststrenge, eksempelvis sekvensen af nukleotider: "GATTTGGGGTTC....". Derudover inkluderer hver FASTQ-fil også information om kvaliteten eller pålideligheden af læsningen for hver enkelt base i sekvensen.
+Hele processen for vores data er vist i figur 4. Efter at DNA- eller RNA-prøver er blevet sekventeret i små dele kaldet "reads", bliver de mange millioner sekvenslæsninger opbevaret i en FASTQ-fil. FASTQ-filen er et tekstbaseret filformat, der indeholder reads som tekststrenge, eksempelvis sekvensen af nukleotider: "GATTTGGGGTTC....". Derudover inkluderer hver FASTQ-fil også information om kvaliteten eller pålideligheden af læsningen for hver enkelt base i sekvensen. 
 <p>
     <img width="600" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/10cd3282-47dd-49b7-b935-0934898d9121">
     <br>
     <em>Figur 4 - Data pipeline </em>
 </p>
 
-Dette bliver konverteret til en BigWig-fil, som indeholder en værdi for, hvor meget hver position af genets sekvens er afdækket af reads fra FASTQ-filen, dvs. hvor meget data der er læst på hver position. Dette ses i “score”-kolonnen i figur 4, som er selve vores responsvariabel. Vi har også en annoteringsfil, der giver information om, hvor i BigWig-filen, de specifikke gener og transskriptioner er. Vi bruger så BigWig-filen og annoteringsfilen i sammenhold, så vi kan modellere afdækningen af specifikke gener og transskriptioner. Der er tale om en sekventiel data, da krav om uafhængighed ikke er opfyldt, hvilket kan ses i autocorrelationsplottet i figur 7. 
+Dette bliver konverteret til en BigWig-fil, som indeholder en værdi for, hvor meget hver position af genets sekvens er afdækket af reads fra FASTQ-filen, dvs. hvor meget data der er læst på hver position. Dette ses i “score”-kolonnen i figur 4, som er selve vores responsvariabel. Vi har også en annoteringsfil, der giver information om, hvor i BigWig-filen, de specifikke gener og transskriptioner er. BigWig-filen indeholder 10.386 forskellige gener, hvilke spænder over samlet 654.074.921 datapunkter, altså knap 63.000 signalværdier for hvert gen i gennemsnit. Vi bruger så BigWig-filen og annoteringsfilen i sammenhold, så vi kan modellere afdækningen af specifikke gener og transskriptioner. Der er tale om en sekventiel data, da krav om uafhængighed ikke er opfyldt, hvilket kan ses i autocorrelationsplottet i figur 7. 
 <p>
     <img width="800" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/5aaccbe1-0c13-4771-90ef-996d895be780">
     <br>
@@ -59,7 +59,7 @@ for (fname in ctrl) {
     GOI_data[[fname]] = ctrl_bw
   }
 ```
-Et eksempel på vores data ses i figur 5, hvor x-aksen er position på genet, og y- aksen er mængden af data normaliseret. Det ses så hvordan vores kontrol-data, den røde kurve, har minimal udsving efter terminering (nedstrømsregionen), mens test-data, den blå kurve, udsvinger meget efter termineringen. Dermed må der have været en defekt i den blå kurves terminering.
+Et eksempel på vores data ses i figur 5, hvor x-aksen er position på genet, og y- aksen er mængden af data normaliseret. Det ses så hvordan vores kontrol-data, den røde kurve, har minimale udsving efter terminering (nedstrømsregionen), mens test-data, den blå kurve, udsvinger meget efter termineringen. Dermed må der have været en defekt i den blå kurves terminering.
 
 <p>
     <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/1fe6dbb5-b324-4bba-a9ee-3ef65c098a99">
@@ -67,7 +67,7 @@ Et eksempel på vores data ses i figur 5, hvor x-aksen er position på genet, og
     <em>Figur 6 - Test-data (blå kurve) og kontrol-data (rød kurve)</em>
 </p>
 
-Der er muligvis biases i data, da de maskiner, der læser sekvenserne, kan producere støj. Derudover er der altid mulighed for menneskelige fejl. Vi vil dog antage, at biases er minimale, da sekvenserne er blevet læst på et laboratorium i et kontrolleret miljø.
+Der er muligvis biases i data, da de maskiner der læser sekvenserne, kan producere støj. Derudover er der altid mulighed for menneskelige fejl. Vi vil dog antage, at biases er minimale, da sekvenserne er blevet læst på et laboratorium i et kontrolleret miljø.
 <p>
     <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/89b5271e-b39c-4069-a133-87aa2563c0a9">
     <br>
@@ -76,7 +76,7 @@ Der er muligvis biases i data, da de maskiner, der læser sekvenserne, kan produ
 
 ### Preprocessering
 
-For at generalisere generne så vi kan fitte modeller på dem, har vi brug for at normalisere vores data. Her starter vi med at lægge 1 til alle observationer, så når coverage er 0, forbliver det sådan efter log-transformationen. Siden DNA-strenge både kan læses forlæns og baglæns, var vi også nødt til at tage i betragtning hvilken retning vores datapunkter var.
+For at generalisere generne så vi kan fitte modeller på dem, har vi brug for at normalisere vores data. Her starter vi med at lægge 1 til alle observationer, så når coverage er 0, forbliver det sådan efter log-transformationen. Siden DNA-strenge både kan læses forlæns og baglæns, var vi også nødt til at tage i betragtning, hvilken retning vores datapunkter var.
 
 ```{r}
 if (strand_sign == "-"){
@@ -93,7 +93,7 @@ Når vi kender kroppen, kan vi normalisere dem ved at trække medianen af kroppe
 body.norm.factors = apply(log2_GOI_data[TSS_row:TES_row,], 2, median)
 log2_GOI_data.bodynorm = t(t(log2_GOI_data) - body.norm.factors)
 ```
-Til sidst trækker vi sample genet fra kontrol genet, så vi får differencen imellem dem. Således burde vi få en kurve der viser defekten i sample-genet, og vi er derfor klar til at modellere på terminerings-defekten. I figur 8 ses dette med et eksempel-gen.
+Til sidst trækker vi sample-genet fra kontrol-genet, så vi får differencen imellem dem. Således burde vi få en kurve, der viser defekten i sample-genet, og vi er derfor klar til at modellere på terminerings-defekten. I figur 8 vises dette med et eksempel-gen.
 
 ```{r}
 log2_GOI_data.bodynorm.ctrlsubtract = log2_GOI_data.bodynorm
@@ -113,7 +113,7 @@ for (i in 1:length(ctrl)) {
 
 ## Identificering af transskriptions-sites
 
-Det er en essentiel del af hele vores pipeline at bestemme, hvilken region (dvs. start- & slutpunkt) vi antager transskriptionen foregår i, og derved vil bestemmelsen af denne danne grundlag for det data vi benytter i den senere modellering. 
+Det er en essentiel del af hele vores pipeline at bestemme hvilken region (dvs. start- & slutpunkt), vi antager transskriptionen foregår i, og derved vil bestemmelsen af denne danne grundlag for det data, vi benytter i den senere modellering. 
 
 For hvert gen har vi typisk flere transskript-varianter angivet i annoteringen. Derfor er det væsentligt at afgøre, hvilket Transscript-Start-Site (TSS) og Transscript-End-Site (TES), vi vil benytte i vores analyse af et gen. Vi har derfor konstrueret en algoritme, der skal bestemme den region (TSS:TES), hvor transskriptions signalet er mest fremtrædende. Med andre ord ønsker vi at identificere de grænser, der med størst sandsynlighed afspejler det fulde transskript.
 
@@ -179,7 +179,7 @@ Denne maksimeres med EM-algoritmen og den rekursive forward-backward algoritme, 
 hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
 ```
 
-Nu har vi identificeret de mest sandsynlige stadier individuelt for sekvensen. Vi er dog opmærksomme på, at defekter i transkriptionstermineringen ikke kan genopstå. Derfor kan stadiet praktisk talt kun skifte fra 1 til 2 én gang og tilsvarende kun skifte tilbage fra 2 til 1 én gang. Vi er derfor nødt til at anvende en mere robust metode for at finde den mest sandsynlige sekvens af skjulte stadier. Til dette bruger vi Viterbi-algoritmen til decoding, som finder den sti af skjulte tilstande med den højeste sandsynlighed:
+Nu har vi identificeret de mest sandsynlige stadier individuelt for sekvensen. Vi er dog opmærksomme på, at defekter i transkriptionstermineringen ikke kan genopstå. Derfor kan stadiet praktisk talt kun skifte fra 1 til 2 én gang og tilsvarende kun skifte tilbage fra 2 til 1 én gang. Vi er derfor nødt til at anvende en mere robust metode for at finde den mest sandsynlige sekvens af skjulte stadier. Til dette bruger vi Viterbi-algoritmen til decoding, som finder den sti af skjulte tilstande, som maksimerer $`p(z_1, z_2, ..., z_N \vert x_1, x_2, ..., x_N)`$:
 
 ```{r}
 viterbi = getViterbi(hmm_fitted, curr.data.list)
