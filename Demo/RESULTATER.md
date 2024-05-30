@@ -10,6 +10,33 @@ I sample_dataset.md filen ligger der 1.000 tilfældigt samplet observationer fra
 
 I dataset.csv filen ligger det fulde dataset i csv-format. 
 
+Tabellen for neden viser en oversigt over de 22 variable i datasettet samt en forklaring af hver variables betydning.
+| Column 1 | Column 2 |
+|----------|----------|
+| TSS    | Transscription Start Site   |
+| TES    | Transscription End Site   |
+| body_diff    | Gns. forskel mellem norm. krop for prøve og kontrol  |
+| us_diff    | Gns. forskel mellem opstrøms-region og krop for prøve  |
+| us.TSS_diff	    | Alternativ til us_diff, bruges sjældent    |
+| rt    | Read-through (transskriptionel defekt) - TRUE/FALSE   |
+| max_rt_length    | Længde af rt-region   |
+| rt_TES    | TES hvorfra rt starter - bestemt af HMM   |
+| rt_start    | Read-through start (i forhold til uTSS) bestemt af HMM - bruges til sigmoidal eller dobbelt-sigmoidal fitting   |
+| rt_end   | Read-through slut (i forhold til uTSS) bestemt af HMM  |
+| rt_int   | Read-through intensitet (middel- eller medianværdi af signalet) i det HMM bestemte read-through  |
+| rt_sum   | Read-through intensitet integreret i det HMM bestemte read-through |
+| rt_max   | Maximale read-through intensitet (middel- eller medianværdi af signalet) i det HMM bestemte read-through  |
+| dsfit   | Double-Sigmoidal fitted - TRUE/FALSE  |
+| sfit   | Sigmoidal fitted - TRUE/FALSE  |
+| rt_end_fitted   | Afslutning på read-through (relativ til uTSS) bestemt gennem Sigmoidal eller double-Sigmoidal model  |
+| extrapolated   | Er rt_end_fitted bestemt ved ekstrapolering ud over dataområdet for det nuværende GOI - TRUE/FALSE|
+| best_fit_asymp   | Asymptotisk værdi for den fittede dobbelt-Sigmoid kurve (bruges til beregning af rt_end_fitted) (kun relevant for dobbeltsigmoidal tilpasning)  |
+| best_fit_Rsq   | $R^2$ værdi for den bedst fittede kurve (kun relevant for Sigmoidal eller double-Sigmoidal fitting)  |
+| endDeclinePoint_x   | Endepunkt for den tilpassede dobbelt-Sigmoid kurve (bruges til at reducere de gemte data, hvis det er muligt) (kun relevant for dobbelt-Sigmoid fitting)  |
+| rt_int_fitted   | Read-through intensitet (mean eller median signal) i det fittede påviste read-through  |
+| rt_sum_fitted   | Read-through intensitet integreret i det fittede påviste read-through  |
+
+
 ## Bemærkning
 Efter at have undersøgt vores dataset mistænker vi, at readthrough_analysis scriptets analyse er for følsom. Ud fra det, vi på forhånd ved om de 20.772 prøver, der er blevet analyseret i scriptet, ville vi forvente en næsten lige fordeling mellem defekt og ikke-defekt - altså omkring 50% defekt og 50% ikke-defekt. I virkeligheden observerer vi imidlertid en fordeling på ca. 84% defekt mod 16% ikke-defekt.
 
