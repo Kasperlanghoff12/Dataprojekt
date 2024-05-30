@@ -23,7 +23,7 @@ Nedenstående tabel indeholder en kort oversigt over projektets kode-bidrag. Und
  <br>
 
 
-* R-filer med prefixet 'SLA' er udelukkende produceret af SLA. De indgår derfor også kun i dette repository, da de bliver brugt i readthrough_analysis scriptet.
+* R-filer med prefixet 'SLA' er udelukkende produceret af SLA, og de er ikke en integreret del af selve readthrough_analysis scriptet. De indgår derfor også kun i dette repository, da de bliver anvendt i readthrough_analysis scriptet.
 * Følgende 'funktioner' er udarbejdet af os, i samarbejde med SLA:
   - check_upstream_signal
     * I dette kode-stykke udregnes forskellen mellem signalet fra kroppen (elongering) og opstrøms-signalet.
