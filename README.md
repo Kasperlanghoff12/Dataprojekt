@@ -224,6 +224,9 @@ I mappen "Demo" ligger dokumentet "RESULTATER.md", som præsenterer resultaterne
 Dokumenterne giver også en forklaring på resten af indholdet i hver af de respektive mapper.
 
 ## Perspektivering
-- ML & NN
-- 
+Resultatet af vores projekt er et script, der specifikt analyserer og kvantificerer defekter i transkriptionens terminering i et givent gen. Scriptet er generaliseret og kræver derfor ikke meget mere end en kontrol- og en prøveindgang. Overordnet set består scriptet af pre-processing, en algoritme til identifikation af transkriptionens start- og slutpunkter, estimater af HMM-parametre, fitting ved hjælp af Viterbi-dekodning og fitting af en sigmoidal eller dobbelt-sigmoidal kurve på defektens signal. Til sidst returnerer scriptet statistik, der beskriver eventuelle defekter.
+
+Dette stemmer i høj grad overens med det mål, vi beskrev i projektbeskrivelsen. Det er dog værd at nævne, at nøjagtigheden af vores samlede model umiddelbart ikke er tilfredsstillende. Derudover skal det bemærkes, at vores mål om at udvikle en R-pakke var meget optimistisk.
+
+Undervejs i projektet blev muligheden for at benytte et neuralt netværk til at påvise read-throughs diskuteret. Vi valgte dog ikke at fortsætte ad denne vej, da scriptet oprindeligt kun statisk beskrev de påviste read-throughs, og vi manglede derfor inputdata til prøver, hvor der ikke var read-throughs. For at løse dette problem ville vi være nødt til at re-designe analysen, som scriptet er baseret på. Dette vurderede vi som værende for omfattende med vores tidsramme i betragtning
 
