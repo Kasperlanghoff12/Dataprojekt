@@ -223,7 +223,7 @@ I mappen "Demo" ligger dokumentet "RESULTATER.md", som præsenterer resultaterne
 
 Dokumenterne giver også en forklaring på resten af indholdet i hver af de respektive mapper.
 
-## Perspektivering
+## Evaluering
 Resultatet af vores projekt er et script, der specifikt analyserer og kvantificerer defekter i transkriptionens terminering i et givent gen. Scriptet er generaliseret og kræver derfor ikke meget mere end en kontrol- og en prøveindgang. Overordnet set består scriptet af pre-processing, en algoritme til identifikation af transkriptionens start- og slutpunkter, estimater af HMM-parametre, udledning af tilstande ved hjælp af Viterbi-dekodning og fitting af en sigmoidal eller dobbelt-sigmoidal kurve på defektens signal. Til sidst returnerer scriptet statistik, der beskriver eventuelle defekter.
 
 Dette stemmer i høj grad overens med det mål, vi beskrev i projektbeskrivelsen. Det er dog værd at nævne, at nøjagtigheden af vores samlede model umiddelbart ikke er tilfredsstillende (fremgår af RESULTATER.md). 
