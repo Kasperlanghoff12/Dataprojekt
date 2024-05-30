@@ -85,9 +85,7 @@ if (strand_sign == "-"){
 log2_GOI_data = log2(GOI_data + 1)
 ```
 
-Udover dette, skulle vi også finde kroppen af generne, så vi kunne undersøge antagelsen om, at kroppen ville være ens for gener med- og uden defekt i termineringen. Udfordringen ved dette var, at vi i annoteringsfilen har flere annotationer af transkripter, hvor der var forskellige koordinater for begyndelsen (TSS) og slutningen (TES) af kroppen. Disse var vi nødt til at sammenligne, så vi var sikre på at finde de rigtige. 
-
-Når vi kender kroppen, kan vi normalisere dem ved at trække medianen af kroppen fra for de enkelte gener. På denne måde sikrer vi en mere robust sammenligning af kontrol- og sample-gener.
+Udover dette, skulle vi også finde kroppen af generne, hvilket er beskrevet nærmere i næste afsnit. Når vi kender kroppen, kan vi normalisere dem ved at trække medianen af kroppen fra for de enkelte gener. På denne måde sikrer vi en mere robust sammenligning af kontrol- og sample-gener.
 
 ```{r}
 body.norm.factors = apply(log2_GOI_data[TSS_row:TES_row,], 2, median)
