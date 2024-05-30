@@ -163,10 +163,11 @@ Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$. Her 
 for $`k \in 1, ..., K`$ tilstande og $`n \in 1, ..., N`$ tidspunkter.
 
 <p>
-    <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/fd64f60d-6cce-44ec-b18e-20a2d79d0139">
+    <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/bbeb49e7-80a1-424c-ac9f-f9254dd570a1">
     <br>
     <em>Figur 12 - Gitter-diagram for skjulte "states"</em>
 </p>
+
 
 Dette udførte vi i r vha. funktioner fra STAN pakken. Vi brugte koden:
 
