@@ -20,7 +20,7 @@ markerer henholdsvis starten og afslutningen af transskriptionen.</em>
 Således er transskriptions-terminering også en kompliceret proces, der involverer over 50 forskellige proteiner. Defekter i termineringen, hvor polymerasen ikke bremses ordentligt, fører til såkaldt “read-through”, hvor transskriptionen fortsætter længere end normalt i den nedstrøms region. Sådanne defekter kan opstå hos patienter, hvor et eller flere af de involverede proteiner er dysfunktionelle. Det kan også opstå i forbindelse med cellulært stress, som ofte opstår midlertidigt i normale individer, men mere ukontrollerbart i forbindelse med sygdomme som for eksempel kræft. Et åbent spørgsmål i feltet er, hvorvidt read-through blot er en konsekvens af stress, eller om det tjener en funktion og derfor er et forsøg fra cellen på at modvirke stress-tilstanden.
 For at kunne forstå termineringen og dens involverede trin er det relevant at kunne udføre en detaljeret beskrivelse af read-through under forskellige betingelser. Vi har i dette projekt været med til at designe en model og algoritme, der kan lave en kvantitativ beskrivelse af read-through på individuelle gener baseret på transskriptionsdata fra celler udsat for forskellige betingelser.
 <br> <br>
-Vores proces ses i figur 3. Efter sekventeringen starter vores proces med at klargøre data, som beskrevet i Data-afsnittet. Derefter pre-processerer vi vores data med log-transformering og normalisering for at vi kan sammenligne test- og kontrol-gener. Så identificerer vi transskriptionens start- og slut-sites, som definerer de data-områder som vi modellerer på. Vi fitter så for hvert gen en Hidden Markov Model, og bruger Viterbi decoding til at identificere om der er en defekt, og i hvilket område som defekten sker. Hvis der er det, fitter vi en (double) sigmoid til at beskrive defekten.
+Vores readthrough-analyse proces ses i figur 3. Efter sekventeringen starter vores proces med at klargøre data, som beskrevet i Data-afsnittet. Derefter pre-processerer vi vores data med log-transformering og normalisering for at vi kan sammenligne test- og kontrol-gener. Så identificerer vi transskriptionens start- og slut-sites, som definerer de data-områder som vi modellerer på. Vi fitter så for hvert gen en Hidden Markov Model, og bruger Viterbi decoding til at identificere om der er en defekt, og i hvilket område som defekten sker. Hvis der er det, fitter vi en (double) sigmoid til at beskrive defekten.
 <br> <br>
 <p>
     <img width="650" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/7af7be05-1366-4a6c-b3cf-beed91c7f237">
@@ -115,10 +115,10 @@ for (i in 1:length(ctrl)) {
 
 Det er en essentiel del af hele vores pipeline at bestemme hvilken region (dvs. start- & slutpunkt), vi antager transskriptionen foregår i, og derved vil bestemmelsen af denne danne grundlag for det data, vi benytter i den senere modellering. 
 
-For hvert gen har vi typisk flere transskript-varianter angivet i annoteringen. Derfor er det væsentligt at afgøre, hvilket Transscript-Start-Site (TSS) og Transscript-End-Site (TES), vi vil benytte i vores analyse af et gen. Vi har derfor konstrueret en algoritme, der skal bestemme den region (TSS:TES), hvor transskriptions signalet er mest fremtrædende. Med andre ord ønsker vi at identificere de grænser, der med størst sandsynlighed afspejler det fulde transskript.
+For hvert gen har vi typisk flere transskript-varianter, angivet i annoteringen. Derfor er det væsentligt at afgøre hvilket Transscript-Start-Site (TSS) og Transscript-End-Site (TES), vi vil benytte i vores analyse af et gen. Vi har derfor konstrueret en algoritme, der skal bestemme den region (TSS:TES), hvor transskriptions signalet er mest fremtrædende. Med andre ord ønsker vi at identificere de grænser, der med størst sandsynlighed afspejler det fulde transskript.
 
 Dette opnår vi ved at kigge på hhv. stigning og fald i signal i hhv. opstrøms- og nedstrømgsregionen i nærheden af de mulige TSS'er og TES'er. I store træk benytter vi den TSS med umiddelbart størst stigning i signal og den TES med umiddelbart største fald i signal.
-Desuden tager algoritmen højde for, hvornår der starter et nyt gen, så 'søgningen' efter en TSS og en TES kun udfolder sig inde for det aktuelle GOI's domæne. 
+Desuden tager algoritmen højde for, hvornår der starter et nyt gen, så 'søgningen' efter en TSS og en TES kun udfolder sig inden for det aktuelle GOI's domæne. 
 
 De to figurer forneden (figur 9. & 10.) demonstrerer, hvilke mulige TSS'er og TES'er algoritmen evaluerer for genet 'GAPDH' og hvilken TSS og TES der vælges. Den røde kurve er vores kontrol-data mens den blå kurve udgør vores prøve.
 <table>
@@ -140,14 +140,8 @@ De to figurer forneden (figur 9. & 10.) demonstrerer, hvilke mulige TSS'er og TE
 
 ### HMM
 
-Som beskrevet i vores databeskrivelse, arbejder vi med sekventielle data i form af nukleotidbasepar langs en DNA-streng. I sekventielle data gælder antagelsen om identisk og uafhængig fordeling (i.i.d) ikke. Vi udnytter de sekventielle mønstre, som korrelation mellem nærtliggende observationer. Derfor giver det mening for os at anvende Markov-modeller, hvor der er en antagelse om, at fremtidige forudsigelser kun afhænger af de mest nylige observationer. Da vi forsøger at skelne mellem to tilstande, defekt og ikke-defekt i termineringen, introducerer vi en Hidden Markov Model (HMM). Her repræsenterer de to tilstande vores skjulte "states", mens vores observerede data er forskellen mellem vores transformerede kontrol- og sampledata. Modellen ses grafisk i figur 11.
+Som beskrevet i vores databeskrivelse, arbejder vi med sekventielle data i form af nukleotidbasepar langs en DNA-streng. I sekventielle data gælder antagelsen om identisk og uafhængig fordeling (i.i.d) ikke. Vi udnytter de sekventielle mønstre som korrelation mellem nærtliggende observationer. Derfor giver det mening for os at anvende Markov-modeller, hvor der er en antagelse om, at fremtidige forudsigelser kun afhænger af de mest nylige observationer. Da vi forsøger at skelne mellem to tilstande, defekt og ikke-defekt i termineringen, introducerer vi en Hidden Markov Model (HMM). Her repræsenterer de to tilstande vores skjulte "states", mens vores observerede data er forskellen mellem vores transformerede kontrol- og sampledata. Modellen ses grafisk i figur 11 samt et gitter-diagram i figur 12, som repræsenterer mulige stier af skjule states.
 ```Denne model udspringer fra teorien i Cristopher M. Bishop, Pattern Recognition and Machine Learning, 2006, kap 13.```
-
-Vi starter med at definere en HMM med to states og en emissionsmodel, der følger en independent gaussian fordeling med antagelsen om delt kovariansmatrix. Det vil sige at de to states, 2 = defekt og 1 = ingen defekt, hver især følger en normalfordeling, som er uafhængig af den anden, men med samme varians. Så vi har:
-
-- Antal tilstande: $`K = \{1, 2\}`$
-- Skjulte variable: $`Z = \{z_1, z_2, ..., z_N\}`$
-- Observerede variable: $`X = \{x_1, x_2, ..., x_N\}`$
 
 <p>
     <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/fd64f60d-6cce-44ec-b18e-20a2d79d0139">
@@ -155,6 +149,11 @@ Vi starter med at definere en HMM med to states og en emissionsmodel, der følge
     <em>Figur 11 - Hidden Markov Model</em>
 </p>
 
+Vi starter med at definere en HMM med to states og en emissionsmodel, der følger en independent gaussian fordeling med antagelsen om delt kovariansmatrix. Det vil sige at de to states, 2 = defekt og 1 = ingen defekt, hver især følger en normalfordeling, som er uafhængig af den anden men med samme varians. Så vi har:
+
+- Antal tilstande: $`K = \{1, 2\}`$
+- Skjulte variable: $`Z = \{z_1, z_2, ..., z_N\}`$
+- Observerede variable: $`X = \{x_1, x_2, ..., x_N\}`$
 
 Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$. Her initieres $\pi$ og A uniformt og parametrene til normalfordelingen vha. K-means:
 - Initielle sandsynligheder: $`\pi = \{\pi_1, \pi_2\}, \pi_k = p(z_{1k} = 1) = \frac{1}{\vert K \vert}`$
@@ -163,7 +162,7 @@ Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$. Her 
 
 for $`k \in 1, ..., K`$ tilstande og $`n \in 1, ..., N`$ tidspunkter.
 
-Dette udførte vi i r med vha. funktioner fra STAN pakken. Vi brugte koden:
+Dette udførte vi i r vha. funktioner fra STAN pakken. Vi brugte koden:
 
 ```{r}
 hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
@@ -173,7 +172,7 @@ Nu hvor vi har initieret modellens parametre, kan vi fitte den til vores data ve
 $`p(X, Z\vert \theta) = p(z_1\vert\pi) [ \prod_{n=2} p(z_n \vert z_{n-1}, A) ] \prod_{m=1} p(x_m \vert z_m, \Phi)`$ <br>
 Vi får så følgende likelihood-funktion ifgl. loven om total sandsynlighed: <br>
 $`L(X,\theta) = p(X\vert\theta)=\sum_Z{p(X,Z\vert\theta)}`$ <br>
-Denne maksimeres med EM-algoritmen og den rekursive forward-backward algoritme, ved at opdatere parametrene, således denne sandsynlighed er konvergeret eller algortimen er kørt igennem 50 iterationer. Vi har brugt følgende kode til dette:
+Denne maksimeres med EM-algoritmen og den rekursive forward-backward algoritme, ved at opdatere parametrene, således denne sandsynlighed er konvergeret, eller algortimen er kørt igennem 50 iterationer. Vi har brugt følgende kode til dette:
   
 ```{r}  
 hmm_fitted = fitHMM(curr.data.list, hmm, maxIters=50)
@@ -186,25 +185,25 @@ viterbi = getViterbi(hmm_fitted, curr.data.list)
 states = as.integer(viterbi[['GOI']])
 ```
 
-På denne måde har vi nu en måde at bestemme hvorvidt der er defekt i genet ved at se om sekvensen af gentranskriberingen på noget tidspunkt er i tilstand 2.
+På denne måde har vi nu en måde at bestemme hvorvidt, der er defekt i genet ved, at se om sekvensen af gentranskriberingen på noget tidspunkt er i tilstand 2.
 
 ### (Double)-Sigmoidal fitting
 
 Efter vi har fundet det mest sandsynlige defekte område vha. HMM, kan vi nu fitte enten en sigmoidal eller double sigmoidal model over dette område. Dette hjælper os med, at være i stand til at kvantificere samt beskrive defekten med flere forskellige mål.
 
-Typisk vil vi gøre brug af sigmoidal, hvis der starter et nyt gen kort efter termineringen af genet. Dvs. signalerne fra de to gener flyder sammen - Ellers foretrækker vi at benytte double-sigmoid. 
+Typisk vil vi gøre brug af sigmoidal, hvis der starter et nyt gen kort efter termineringen af genet. Dvs. signalerne fra de to gener flyder sammen - ellers foretrækker vi at benytte double-sigmoid. 
 
-Vi benytter fitAndCategorize-funktionen fra Sicegar pakken til at afgøre om vi kan fitte en sigmoidal, double-sigmoidal eller ingen. Måden denne funktion fungerer er at forsæge at fitte både sigmoidal og double-sigmoidal kurver til vores data, som er den normaliserede difference mellem kontrol- og sample genet. Den estimerer altså parametrene A, B som er hhv. maks- og min signalstyrke, $`h_1, h_1`$ som er vækst rater og $`m_1, m_2`$ som er midtpunkter til hhv.:
+Vi benytter fitAndCategorize-funktionen fra Sicegar pakken, til at afgøre om vi kan fitte en sigmoidal, double-sigmoidal eller ingen. Måden denne funktion fungerer er at forsøge at fitte både sigmoidal og double-sigmoidal kurver til vores data, som er den normaliserede difference mellem kontrol- og sample genet. Den estimerer altså parametrene A, B som er hhv. maks- og min signalstyrke, $`h_1, h_1`$ som er vækst rater og $`m_1, m_2`$ som er midtpunkter til hhv.:
 
 Sigmoidal: $`\frac{A}{1+e^{-x}}`$,
 
 Double-sigmoidal: $`\frac{A}{1+e^{-h_1(x-m_1)}} + \frac{B}{1+e^{-h_2(x-m_2)}}`$.
 
-Hvis ingen af modellerne passer til vores data (hvilket undersøges vha. forskellige kriterier), returnerer funktionen "ambiguous". Hvis kun den ene passer, returnerer den navnet på denne, og hvis begge passer, vælger funktionen den model med laveste AIC score, hvilket er et kriterie, som bruges til at bestemme hvilken machine learning model er bedst for et givent datasæt. Hvis fitAndCategorize returnerer 'ambigious' fitter vi både en sigmoidal og en double-sigmoidal, hvorefter vi vælger den med højest $`R^2`$.
+Hvis ingen af modellerne passer til vores data (hvilket undersøges vha. forskellige kriterier), returnerer funktionen "ambiguous". Hvis kun den ene passer, returnerer den navnet på denne, og hvis begge passer, vælger funktionen den model med laveste AIC score, hvilket er et kriterie, som bruges til, at bestemme hvilken machine learning model er bedst for et givent datasæt. Hvis fitAndCategorize returnerer 'ambigious', fitter vi både en sigmoidal og en double-sigmoidal, hvorefter vi vælger den med højest $`R^2`$.
 
 Herefter bruger vi bruger vi enten doublesigmoidalFitFormula eller sigmoidalFitFormula til, at forudsige signalstyrke for området med defekt ud fra de givne (double) sigmoidal parametre.
 
-Disse fits og forudsigelser bruges til at vores endelige resultater, som er vores outputs i vores funktion. Nedenfor illustreres disse resultater for nogle et lille udpluk af generne. Beskrivelse af de forskellige attributter beskrives i dokumentet "RESULTATER.md".
+Disse fits og forudsigelser benyttes til vores endelige resultater, som er vores outputs i vores readthrough-funktion. Nedenfor illustreres disse resultater for nogle et lille udpluk af generne. De forskellige attributter beskrives i dokumentet "RESULTATER.md".
 
 |        | TSS|   TES|  body_diff|    us_diff|us.TSS_diff |rt    | max_rt_length|rt_TES  | rt_start| rt_end|    rt_int|      rt_sum|    rt_max|dsfit |sfit  | rt_end_fitted|extrapolated | best_fit_asymp| best_fit_Rsq| endDeclinePoint_x| rt_int_fitted| rt_sum_fitted|
 |:-------|---:|-----:|----------:|----------:|:-----------|:-----|-------------:|:-------|--------:|------:|---------:|-----------:|---------:|:-----|:-----|-------------:|:------------|--------------:|------------:|-----------------:|-------------:|-------------:|
@@ -216,7 +215,7 @@ Disse fits og forudsigelser bruges til at vores endelige resultater, som er vore
 |B3GALT6 |   1|  2805|  0.1169609|  4.6357742|NA          |FALSE |             0|0       |        0|      0| 0.0000000|     0.00000|        NA|FALSE |FALSE |             0|FALSE        |             NA|           NA|                NA|     0.0000000|        0.0000|
 
 
-## Kode & Demonstration
+## Dokumentatiom
 I mappen "R_Kode" ligger dokumentet "KODEOVERSIGT.md", som angiver bidragsyderne til de forskellige kodestykker og indeholder en kort beskrivelse af de enkelte kodestykkers funktionalitet.
 
 I mappen "Demo" ligger dokumentet "RESULTATER.md", som præsenterer resultaterne fra vores analyse, udført med readthrough_analysis scriptet. Dokumentet inkluderer en beskrivelse af vores dataset, relevante bemærkninger samt en visuel demonstration af scriptets analyse af tre forskellige gener.
