@@ -11,7 +11,7 @@ I sample_dataset.md filen ligger der 1.000 tilfældigt samplet observationer fra
 I dataset.csv filen ligger det fulde dataset i csv-format. 
 
 Tabellen for neden viser en oversigt over de 22 variable i datasettet samt en forklaring af hver variables betydning.
-| Column 1 | Column 2 |
+| Variabel | Forklaring |
 |----------|----------|
 | TSS    | Transscription Start Site   |
 | TES    | Transscription End Site   |
