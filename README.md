@@ -218,7 +218,7 @@ Disse fits og forudsigelser bruges til at
 ## Kode & Demonstration
 I mappen "R_Kode" ligger dokumentet "KODEOVERSIGT.md", som angiver bidragsyderne til de forskellige kodestykker og indeholder en kort beskrivelse af de enkelte kodestykkers funktionalitet.
 
-I mappen "Demo" ligger dokumentet "RESULTATER.md", som præsenterer resultaterne fra vores analyse, udført med readthrough_analysis scriptet. Dokumentet inkluderer en beskrivelse af genereringen af vores dataset, relevante bemærkninger samt en visuel demonstration af scriptets analyse af tre forskellige gener.
+I mappen "Demo" ligger dokumentet "RESULTATER.md", som præsenterer resultaterne fra vores analyse, udført med readthrough_analysis scriptet. Dokumentet inkluderer en beskrivelse af vores dataset, relevante bemærkninger samt en visuel demonstration af scriptets analyse af tre forskellige gener.
 
 Dokumenterne giver også en forklaring på resten af indholdet i hver af de respektive mapper.
 ## Perspektivering
