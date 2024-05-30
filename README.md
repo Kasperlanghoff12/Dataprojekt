@@ -205,6 +205,16 @@ Herefter bruger vi bruger vi enten doublesigmoidalFitFormula eller sigmoidalFitF
 
 Disse fits og forudsigelser bruges til at 
 
+|        | TSS|   TES|  body_diff|    us_diff|us.TSS_diff |rt    | max_rt_length|rt_TES  | rt_start| rt_end|    rt_int|      rt_sum|    rt_max|dsfit |sfit  | rt_end_fitted|extrapolated | best_fit_asymp| best_fit_Rsq| endDeclinePoint_x| rt_int_fitted| rt_sum_fitted|
+|:-------|---:|-----:|----------:|----------:|:-----------|:-----|-------------:|:-------|--------:|------:|---------:|-----------:|---------:|:-----|:-----|-------------:|:------------|--------------:|------------:|-----------------:|-------------:|-------------:|
+|SAMD11  |   1| 20652| -0.1720951|  0.9637476|NA          |TRUE  |         16009|944574  |    20653|  36661| 0.1720951|  8154.55281| 0.4458650|TRUE  |FALSE |         31491|FALSE        |      0.4346400|    0.3124570|             55075|     0.4974774|     7505.4771|
+|KLHL17  |   1|  5136|  0.5820985|  3.0724062|NA          |TRUE  |           762|965719  |     5137|   5587| 0.0113300|   -18.06437| 0.2408704|FALSE |TRUE  |          5898|FALSE        |             NA|   -0.0389367|              5898|    -0.0698842|     -117.7091|
+|PLEKHN1 |   1|  9384|  0.1013182| -1.4288504|NA          |TRUE  |         25272|975865  |     9385|  27328| 0.7247202| 12489.52924| 1.7907342|FALSE |TRUE  |         34656|FALSE        |             NA|    0.0050567|             34656|     0.6741845|    16691.0026|
+|ISG15   |   1| 13403|  1.2747376|  2.3949412|NA          |TRUE  |          5579|1014540 |    13404|  18743| 0.4583741|  2575.88387| 1.2195022|TRUE  |FALSE |         18839|FALSE        |      0.0000000|    0.1698744|             37455|     0.4359586|     2538.1540|
+|AGRN    |   1| 35999| -0.3976053|  0.5741375|NA          |TRUE  |        176118|1056118 |    36000| 212054| 0.3976053| 71589.56775| 1.5671740|TRUE  |FALSE |        105483|FALSE        |      0.3975892|    0.1484812|            148864|     0.3976053|    26887.4265|
+|B3GALT6 |   1|  2805|  0.1169609|  4.6357742|NA          |FALSE |             0|0       |        0|      0| 0.0000000|     0.00000|        NA|FALSE |FALSE |             0|FALSE        |             NA|           NA|                NA|     0.0000000|        0.0000|
+
+
 ## Kode & Demonstration
 I mappen "R_Kode" ligger dokumentet "KODEOVERSIGT.md", som angiver bidragsyderne til de forskellige kodestykker og indeholder en kort beskrivelse af de enkelte kodestykkers funktionalitet.
 
