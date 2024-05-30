@@ -170,9 +170,9 @@ hmm = initHMM(curr.data.list, nStates=2, "IndependentGaussian", sharedCov=TRUE)
 ```
 
 Nu hvor vi har initieret modellens parametre, kan vi fitte den til vores data ved at bruge maximum likelihood. Vi har den følgende simultane fordeling: 
-$`p(X, Z\vert \theta) = p(z_1\vert\pi) [ \prod_{n=2} p(z_n \vert z_{n-1}, A) ] \prod_{m=1} p(x_m \vert z_m, \Phi)`$
+$$`p(X, Z\vert \theta) = p(z_1\vert\pi) [ \prod_{n=2} p(z_n \vert z_{n-1}, A) ] \prod_{m=1} p(x_m \vert z_m, \Phi)`$$
 Vi får så følgende likelihood-funktion ifgl. loven om total sandsynlighed:
-$`L(X,\theta) = p(X\vert\theta)=\sum_Z{p(X,Z\vert\theta)}`$
+$$`L(X,\theta) = p(X\vert\theta)=\sum_Z{p(X,Z\vert\theta)}`$$
 Denne maksimeres med EM-algoritmen og den rekursive forward-backward algoritme, ved at opdatere parametrene, således denne sandsynlighed er konvergeret eller algortimen er kørt igennem 50 iterationer. Vi har brugt følgende kode til dette:
   
 ```{r}  
