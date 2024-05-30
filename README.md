@@ -76,7 +76,7 @@ Der er muligvis biases i data, da de maskiner der læser sekvenserne, kan produc
 
 ### Preprocessering
 
-For at generalisere generne så vi kan fitte modeller på dem, har vi brug for at normalisere vores data. Her starter vi med at lægge 1 til alle observationer, så når coverage er 0, forbliver det sådan efter log-transformationen. Siden DNA-strenge både kan læses forlæns og baglæns, var vi også nødt til at tage i betragtning, hvilken retning vores datapunkter var.
+For at generalisere generne så vi kan fitte modeller på dem, har vi brug for at normalisere vores data. Her starter vi med at lægge 1 til alle observationer, så når coverage er 0, kan vi stadig log-transformere det. Siden DNA-strenge både kan læses forlæns og baglæns, var vi også nødt til at tage i betragtning, hvilken retning vores datapunkter var.
 
 ```{r}
 if (strand_sign == "-"){
