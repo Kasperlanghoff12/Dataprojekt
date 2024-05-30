@@ -204,7 +204,7 @@ Hvis ingen af modellerne passer til vores data (hvilket undersøges vha. forskel
 
 Herefter bruger vi bruger vi enten doublesigmoidalFitFormula eller sigmoidalFitFormula til, at forudsige signalstyrke for området med defekt ud fra de givne (double) sigmoidal parametre.
 
-Disse fits og forudsigelser bruges til at 
+Disse fits og forudsigelser bruges til at vores endelige resultater, som er vores outputs i vores funktion. Nedenfor illustreres disse resultater for nogle et lille udpluk af generne. Beskrivelse af de forskellige attributter beskrives i dokumentet "RESULTATER.md".
 
 |        | TSS|   TES|  body_diff|    us_diff|us.TSS_diff |rt    | max_rt_length|rt_TES  | rt_start| rt_end|    rt_int|      rt_sum|    rt_max|dsfit |sfit  | rt_end_fitted|extrapolated | best_fit_asymp| best_fit_Rsq| endDeclinePoint_x| rt_int_fitted| rt_sum_fitted|
 |:-------|---:|-----:|----------:|----------:|:-----------|:-----|-------------:|:-------|--------:|------:|---------:|-----------:|---------:|:-----|:-----|-------------:|:------------|--------------:|------------:|-----------------:|-------------:|-------------:|
