@@ -211,7 +211,7 @@ Double-sigmoidal: $`\frac{A}{1+e^{-h_1(x-m_1)}} + \frac{B}{1+e^{-h_2(x-m_2)}}`$.
 <p>
     <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/1b561a4f-f004-4da0-8905-fdbc1cfa97fd">
     <br>
-    <em>Figur 13 - Gitter-diagram for skjulte "states"</em>
+    <em>Figur 13 - Fitted Double Sigmoid-kurve vist i lilla</em>
 </p>
 
 
