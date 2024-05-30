@@ -189,6 +189,13 @@ states = as.integer(viterbi[['GOI']])
 På denne måde har vi nu en måde at bestemme hvorvidt der er defekt i genet ved at se om sekvensen af gentranskriberingen på noget tidspunkt er i tilstand 2.
 
 ### (Double)-Sigmoidal fitting
+
+Efter vi har fundet det mest sandsynlige defekte område vha. HMM, kan vi nu fitte enten en sigmoidal eller double sigmoidal model over dette område. Dette hjælper os med, at være i stand til at kvantificere samt beskrive defekten med flere forskellige mål.
+
+Typisk vil vi gøre brug af sigmoidal, hvis der starter et nyt gen kort efter termineringen af genet. Dvs. signalerne fra de to gener flyder sammen - Ellers foretrækker vi at benytte double-sigmoid. 
+
+
+
 - Vi benytter Sicegar (fitAndCategorize-funktionen) pakken til at afgøre om vi kan fitte en sigmoidal, double-sigmoidal, begge eller ingen. 
 - Hvis fitAndCategorize returnerer 'ambigious' fitter vi både en sigmoidal og en double-sigmoidal, hvorefter vi vælger den med højest R^2.
 - Typisk vil vi gøre brug af sigmoidal, hvis der starter et nyt gen kort efter termineringen af GOI. Dvs. signalerne fra de to gener flyder sammen - Ellers foretrækker vi at benytte double-sigmoid. 
