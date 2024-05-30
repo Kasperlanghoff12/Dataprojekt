@@ -143,17 +143,23 @@ De to figurer forneden (figur 9. & 10.) demonstrerer, hvilke mulige TSS'er og TE
 Som beskrevet i vores databeskrivelse, arbejder vi med sekventielle data i form af nukleotidbasepar langs en DNA-streng. I sekventielle data gælder antagelsen om identisk og uafhængig fordeling (i.i.d) ikke. Vi udnytter de sekventielle mønstre som korrelation mellem nærtliggende observationer. Derfor giver det mening for os at anvende Markov-modeller, hvor der er en antagelse om, at fremtidige forudsigelser kun afhænger af de mest nylige observationer. Da vi forsøger at skelne mellem to tilstande, defekt og ikke-defekt i termineringen, introducerer vi en Hidden Markov Model (HMM). Her repræsenterer de to tilstande vores skjulte "states", mens vores observerede data er forskellen mellem vores transformerede kontrol- og sampledata. Modellen ses grafisk i figur 11 samt et gitter-diagram i figur 12, som repræsenterer mulige stier af skjule states.
 ```Denne model udspringer fra teorien i Cristopher M. Bishop, Pattern Recognition and Machine Learning, 2006, kap 13.```
 
+Vi starter med at definere en HMM med to states og en emissionsmodel, der følger en independent gaussian fordeling med antagelsen om delt kovariansmatrix. Det vil sige at de to states, 2 = defekt og 1 = ingen defekt, hver især følger en normalfordeling, som er uafhængig af den anden men med samme varians. Så vi har:
+
+- Antal tilstande: $`K = \{1, 2\}`$
+- Skjulte variable: $`Z = \{z_1, z_2, ..., z_N\}`$
+- Observerede variable: $`X = \{x_1, x_2, ..., x_N\}`$
+
 <p>
     <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/fd64f60d-6cce-44ec-b18e-20a2d79d0139">
     <br>
     <em>Figur 11 - Hidden Markov Model</em>
 </p>
 
-Vi starter med at definere en HMM med to states og en emissionsmodel, der følger en independent gaussian fordeling med antagelsen om delt kovariansmatrix. Det vil sige at de to states, 2 = defekt og 1 = ingen defekt, hver især følger en normalfordeling, som er uafhængig af den anden men med samme varians. Så vi har:
-
-- Antal tilstande: $`K = \{1, 2\}`$
-- Skjulte variable: $`Z = \{z_1, z_2, ..., z_N\}`$
-- Observerede variable: $`X = \{x_1, x_2, ..., x_N\}`$
+<p>
+    <img width="450" alt="transkription" src="https://github.com/Kasperlanghoff12/Dataprojekt/assets/49984447/fd64f60d-6cce-44ec-b18e-20a2d79d0139">
+    <br>
+    <em>Figur 12 - Gitter-diagram for skjulte "states"</em>
+</p>
 
 Vi initierer også parametrene til modellen: $`\theta = \{\pi, A, \Phi\}`$. Her initieres $\pi$ og A uniformt og parametrene til normalfordelingen vha. K-means:
 - Initielle sandsynligheder: $`\pi = \{\pi_1, \pi_2\}, \pi_k = p(z_{1k} = 1) = \frac{1}{\vert K \vert}`$
