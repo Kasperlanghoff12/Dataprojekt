@@ -231,7 +231,7 @@ Disse fits og forudsigelser benyttes til vores endelige resultater, som er vores
 |B3GALT6 |   1|  2805|  0.1169609|  4.6357742|NA          |FALSE |             0|0       |        0|      0| 0.0000000|     0.00000|        NA|FALSE |FALSE |             0|FALSE        |             NA|           NA|                NA|     0.0000000|        0.0000|
 
 
-## Dokumentatiom
+## Dokumentation
 I mappen "R_Kode" ligger dokumentet "KODEOVERSIGT.md", som angiver bidragsyderne til de forskellige kodestykker og indeholder en kort beskrivelse af de enkelte kodestykkers funktionalitet.
 
 I mappen "Demo" ligger dokumentet "RESULTATER.md", som præsenterer resultaterne fra vores analyse, udført med readthrough_analysis scriptet. Dokumentet inkluderer en beskrivelse af vores dataset, relevante bemærkninger samt en visuel demonstration af scriptets analyse af tre forskellige gener.
